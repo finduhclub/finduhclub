@@ -4,7 +4,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { BoxArrowRight, PersonFill, PersonPlusFill, PeopleFill, Bucket } from 'react-bootstrap-icons';
+import { BoxArrowRight, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
 
 const NavBar = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
@@ -16,8 +16,7 @@ const NavBar = () => {
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand as={NavLink} to="/" className="d-flex align-items-center">
-          <PeopleFill size={50} className="me-2"/>
-          <h2 className="mt-2">Find UH Clubs</h2>
+          <img src={'/images/find-uh-clubs-logo.png'} alt="uh-logo" height={50} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -32,7 +31,7 @@ const NavBar = () => {
           </Nav>
           <Nav className="justify-content-end">
             {currentUser === '' ? (
-              <NavDropdown id="login-dropdown" title="Login">
+              <NavDropdown id="login-dropdown" title="Login" className="me-3">
                 <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
                   <PersonFill />
                   Sign

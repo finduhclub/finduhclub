@@ -18,7 +18,7 @@ const Footer = () => (
         </Col>
 
         <Col className="text-align-end">
-          <strong>University of Hawaii at Manoa</strong>
+          <img src={'/images/uhm-logo.png'} alt="uh-logo" height={50} className="mb-2"/>
           {' '}
           <br />
           2500 Campus Rd, Honolulu, HI 96822
