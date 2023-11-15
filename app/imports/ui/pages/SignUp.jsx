@@ -41,7 +41,7 @@ const SignUp = ({ location }) => {
   }
   return (
     <Container id="signup-page" className="py-3">
-      <Row className="align-items-center">
+      <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center">
             <h2 className="text-white mb-4">Register your account</h2>
@@ -69,14 +69,6 @@ const SignUp = ({ location }) => {
               {error}
             </Alert>
           )}
-        </Col>
-        <Col className="align-items-center text-center">
-          <h1 className="text-white">Welcome to <br/> Find UH Clubs</h1>
-          <h5 className="text-white">Explore the vibrant campus life at the University of Hawaii at
-            Mānoa with our user-friendly website, connecting students and clubs
-            seamlessly. Discover the perfect club match for your interests and
-            passions, fostering a dynamic and engaging university experience.</h5>
-          <br/>
         </Col>
       </Row>
     </Container>
