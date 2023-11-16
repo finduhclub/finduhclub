@@ -29,7 +29,7 @@ const ViewProfile = () => {
             <h2>My Profile</h2>
           </Col>
           <Row>
-            {profiles.map((profile, index) => <Col key={index}><Profile profile={profile} /></Col>)}
+            <Col><Profile profile={profiles[0]} /></Col>
           </Row>
         </Col>
       </Row>

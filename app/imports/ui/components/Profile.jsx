@@ -16,7 +16,7 @@ const Profile = ({ profile }) => (
         <ul>{profile.interests.map(interest => <li>{interest}</li>)}</ul>
       </Card.Text>
       <br />
-      <Link to={`/edit/${profile._id}`}>Edit</Link>
+      <Link to={`/profile/edit/${profile._id}`}>Edit</Link>
     </Card.Body>
   </Card>
 );
