@@ -44,6 +44,14 @@ footer, footer a {
   color: var(--matr-navbar-text-color);
 }
 
+#welcome {
+  padding: 2rem;
+
+  background-color: rgba(0, 0, 0, 0.6);
+  background-clip: padding-box;
+  border-radius: 10px;
+}
+
 /* Card Style for Profiles */
 .card-img, .card-img-bottom, .card-img-top   {
   width: 75px !important;
