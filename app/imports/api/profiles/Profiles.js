@@ -25,10 +25,10 @@ class ProfilesCollection {
         type: String,
         defaultValue: 'None',
       },
-      interests: {
+      interests: Array,
+      'interests.$': {
         type: String,
         allowedValues: ClubTypes,
-        defaultValue: 'Other',
       },
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
