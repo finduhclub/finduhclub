@@ -55,24 +55,59 @@ const ListStuff = () => {
                   <div key={`inline-${type}`} className="mb-3">
                     <Form.Check
                       inline
-                      label="Hobbies"
+                      label="Religious/Spiritual"
                       name="group1"
                       type={type}
                       id={`inline-${type}-1`}
                     />
                     <Form.Check
                       inline
-                      label="Fun"
+                      label="Honorary Society"
                       name="group1"
                       type={type}
                       id={`inline-${type}-2`}
                     />
                     <Form.Check
                       inline
-                      disabled
-                      label="Computer Science"
+                      label="Service"
                       type={type}
                       id={`inline-${type}-3`}
+                    />
+                    <Form.Check
+                      inline
+                      label="Student Affairs"
+                      type={type}
+                      id={`inline-${type}-4`}
+                    />
+                    <Form.Check
+                      inline
+                      label="Leisure/Recreational"
+                      type={type}
+                      id={`inline-${type}-5`}
+                    />
+                    <Form.Check
+                      inline
+                      label="Academic/Professional"
+                      type={type}
+                      id={`inline-${type}-6`}
+                    />
+                    <Form.Check
+                      inline
+                      label="Fraternity/Sorority"
+                      type={type}
+                      id={`inline-${type}-7`}
+                    />
+                    <Form.Check
+                      inline
+                      label="Ethnic/Cultural"
+                      type={type}
+                      id={`inline-${type}-8`}
+                    />
+                    <Form.Check
+                      inline
+                      label="Sports/Leisure"
+                      type={type}
+                      id={`inline-${type}-9`}
                     />
                   </div>
                 ))}
