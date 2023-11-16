@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-/** Renders a profile card used in List Profiles (Admin). See pages/ViewProfile.jsx. */
-const ProfileAdmin = ({ profile }) => (
+/** Renders a profile card. See pages/ViewProfile.jsx. */
+const Profile = ({ profile }) => (
   <Card className="h-100" width={100}>
     <Card.Header>
       <Card.Img src={profile.image} width={75} />
@@ -15,13 +16,13 @@ const ProfileAdmin = ({ profile }) => (
         <ul>{profile.interests.map(interest => <li>{interest}</li>)}</ul>
       </Card.Text>
       <br />
-      <footer className="blockquote-footer">{profile.ownerID}</footer>
+      <Link to={`/edit/${profile._id}`}>Edit</Link>
     </Card.Body>
   </Card>
 );
 
 // Require a document to be passed to this component.
-ProfileAdmin.propTypes = {
+Profile.propTypes = {
   profile: PropTypes.shape({
     username: PropTypes.string,
     image: PropTypes.string,
@@ -32,4 +33,4 @@ ProfileAdmin.propTypes = {
   }).isRequired,
 };
 
-export default ProfileAdmin;
+export default Profile;
