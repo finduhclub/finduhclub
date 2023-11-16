@@ -44,3 +44,7 @@ footer, footer a {
   color: var(--matr-navbar-text-color);
 }
 
+/* Card Style for Profiles */
+.card-img, .card-img-bottom, .card-img-top   {
+  width: 75px !important;
+}
