@@ -18,7 +18,7 @@ const Footer = () => (
         </Col>
 
         <Col className="text-align-end">
-          <img src={'/images/uhm-logo.png'} alt="uh-logo" height={50} className="mb-2"/>
+          <img src="/images/uhm-logo.png" alt="uh-logo" height={50} className="mb-2" />
           {' '}
           <br />
           2500 Campus Rd, Honolulu, HI 96822

@@ -45,7 +45,7 @@ const SignIn = () => {
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center">
-            <h2 className="text-white mb-4">Login to your account</h2>
+            <h2 className="text-white mb-4ES">Login to your account</h2>
           </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
