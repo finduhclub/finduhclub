@@ -1,69 +1,43 @@
 import React from 'react';
-import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, HiddenField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
-import { useTracker } from 'meteor/react-meteor-data';
+import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { useParams } from 'react-router';
-import LoadingSpinner from '../components/LoadingSpinner';
-import { Profiles } from '../../api/profiles/Profiles';
-
-const bridge = new SimpleSchema2Bridge(Profiles.schema);
 
 /* Renders the EditStuff page for editing a single document. */
 const EditProfile = () => {
-  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
-  const { _id } = useParams();
-  // console.log('EditStuff', _id);
-  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { doc, ready } = useTracker(() => {
-    // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Profiles.userPublicationName);
-    // Determine if the subscription is ready
-    const rdy = subscription.ready();
-    // Get the document
-    const document = Profiles.collection.findOne(_id);
-    return {
-      doc: document,
-      ready: rdy,
-    };
-  }, [_id]);
-  // console.log('EditStuff', doc, ready);
-  // On successful submit, insert the data.
-  const submit = (data) => {
-    const { username, image, membership, interests } = data;
-    Profiles.collection.update(_id, { $set: { username, image, membership, interests } }, (error) => (error ?
-      swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+  const schema = new SimpleSchema({
+    firstName: String,
+    LastName: String,
+  });
+
+  const bridge = new SimpleSchema2Bridge(schema);
+  const currentUser = Meteor.user();
+  const submit = (newName) => {
+    const { firstName, lastName } = newName;
+    Meteor.users.update({ profile: { firstName: firstName, lastName: lastName } });
   };
 
-  return ready ? (
+  return (
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={10}>
           <Col className="text-center"><h2>Edit Profile</h2></Col>
-          <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
+          <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
               <Card.Body>
-                <Row>
-                  <Col><TextField name="username" /></Col>
-                </Row>
-                <Row>
-                  <Col><TextField name="image" /></Col>
-                  <Col><TextField name="membership" /></Col>
-                </Row>
-                <Row><SelectField name="interests" /></Row>
-                <SubmitField value="Submit" />
+                <TextField name="firstName" placeholder={currentUser.profile.firstName} />
+                <TextField name="lastName" placeholder={currentUser.profile.lastName} />
                 <ErrorsField />
-                <HiddenField name="ownerID" />
+                <SubmitField />
               </Card.Body>
             </Card>
           </AutoForm>
         </Col>
       </Row>
     </Container>
-  ) : <LoadingSpinner />;
+  );
 };
 
 export default EditProfile;

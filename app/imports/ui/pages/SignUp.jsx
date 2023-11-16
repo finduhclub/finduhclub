@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Meteor } from 'meteor/meteor';
 import { Link, Navigate } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
 import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
@@ -17,13 +18,15 @@ const SignUp = ({ location }) => {
   const schema = new SimpleSchema({
     email: String,
     password: String,
+    firstName: String,
+    lastName: String,
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (doc) => {
-    const { email, password } = doc;
-    Accounts.createUser({ email, username: email, password }, (err) => {
+    const { email, password, firstName, lastName } = doc;
+    Accounts.createUser({ email, username: email, password, profile: { firstName: firstName, lastName: lastName } }, (err) => {
       if (err) {
         setError(err.reason);
       } else {
@@ -51,6 +54,8 @@ const SignUp = ({ location }) => {
               <Card.Body>
                 <TextField name="email" placeholder="E-mail address" />
                 <TextField name="password" placeholder="Password" type="password" />
+                <TextField name="firstName" />
+                <TextField name="lastName" />
                 <ErrorsField />
                 <SubmitField />
               </Card.Body>
