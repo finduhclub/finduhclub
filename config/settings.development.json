@@ -4,6 +4,11 @@
     { "email": "john@foo.com", "password": "changeme" }
   ],
 
+  "defaultProfiles": [
+    { "ownerID": "john@foo.com", "username": "john", "image": "https://github.com/philipmjohnson.png", "membership": "None", "interests": "Other" },
+    { "ownerID":  "admin@foo.com", "username": "admin", "image": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4", "membership": "Soccer", "interests": "Sports/Leisure" }
+  ],
+
   "defaultData": [
     { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
