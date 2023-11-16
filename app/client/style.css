@@ -3,8 +3,11 @@
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: #ECECEC;
-  --matr-navbar-bg-rgb: 236, 236, 236;
+  --matr-navbar-bg: #024731;
+  --matr-navbar-bg-rgb: 1, 28, 19;
+  --matr-navbar-text-color: #FFFFFF;
+  --matr-navbar-brand-color: #7dc47b;
+  --matr-navbar-highlight-text: green;
 }
 
 /* Change bootstrap variable values.
@@ -12,6 +15,16 @@
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
+  background: fixed center url("images/uh-background-image.png");
+  background-size: cover;
+}
+
+body .navbar {
+  --bs-navbar-active-color: var(--matr-navbar-highlight-text);
+  --bs-navbar-brand-color: var(--matr-navbar-brand-color);
+  --bs-navbar-brand-hover-color: var(--matr-navbar-highlight-text);
+  --bs-navbar-color: var(--matr-navbar-text-color);
+  --bs-navbar-hover-color: var(--matr-navbar-highlight-text);
 }
 
 /* Set the alert background on the signin and signup pages. */
@@ -20,11 +33,15 @@ body {
 }
 
 /* Define custom styles */
-.gray-background {
+.white-background {
   background-color: var(--matr-navbar-bg);
-  color: var(--bs-dark);
+  color: var(--bs-light);
   padding-top: 10px;
   padding-bottom: 20px;
+}
+
+footer, footer a {
+  color: var(--matr-navbar-text-color);
 }
 
 /* Card Style for Profiles */
