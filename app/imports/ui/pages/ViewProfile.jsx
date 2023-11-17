@@ -18,7 +18,7 @@ const ViewProfile = () => {
           <Row>
             <Card className="h-100" width={100}>
               <Card.Header>
-                <Card.Title>{firstName} {lastName}</Card.Title>
+                <Card.Title>{firstName === undefined ? 'No first name' : firstName} {lastName}</Card.Title>
                 <Card.Subtitle>{userName}</Card.Subtitle>
               </Card.Header>
               <Card.Body>
