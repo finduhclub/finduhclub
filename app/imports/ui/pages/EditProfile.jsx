@@ -15,16 +15,16 @@ const bridge = new SimpleSchema2Bridge(schema);
 
 /* Renders the EditStuff page for editing a single document. */
 const EditProfile = () => {
-  // const userName = Meteor.user().username;
-  // const firstName = Meteor.user({ fields: { 'profile.firstName': 1 } }).profile.firstName;
-  // const lastName = Meteor.user({ fields: { 'profile.lastName': 1 } }).profile.lastName;
   const submit = (data) => {
-    const { firstname, lastname } = data;
+    const { firstName, lastName } = data;
     // const owner = Meteor.user().username;
     Meteor.users.update(
-      { _id: Meteor.userId() },
-      { $set: { 'profile.firstName': firstname } },
-      { $set: { 'profile.lastName': lastname } },
+      Meteor.userId(),
+      { $set: { 'profile.firstName': firstName } },
+      { $set: { 'profile.lastName': lastName } },
+      (error) => (error ?
+        swal('Error', error.message, 'error') :
+        swal('Success', 'Item updated successfully', 'success')),
     );
   };
 
