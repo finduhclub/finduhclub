@@ -9,9 +9,6 @@ import swal from 'sweetalert';
 
 /* Renders the EditStuff page for editing a single document. */
 const EditProfile = () => {
-  const [error, setError] = useState('');
-  const [redirectToReferer, setRedirectToRef] = useState(false);
-
   const schema = new SimpleSchema({
     firstName: String,
   });
@@ -54,14 +51,13 @@ const EditProfile = () => {
   const updatePassword = (data) => {
     const { oldPassword, newPassword } = data;
     console.log(oldPassword);
-    Accounts.changePassword(oldPassword, newPassword, (err) => {
-      if (err) {
-        setError(err.reason);
-      } else {
-        setError('');
-        setRedirectToRef(true);
-      }
-    });
+    Accounts.changePassword(
+      oldPassword,
+      newPassword,
+      (errors) => (errors ?
+        swal('Error', errors.message, 'error') :
+        swal('Success', 'Item updated successfully', 'success')),
+    );
   };
 
   let fRef = null;
@@ -98,14 +94,6 @@ const EditProfile = () => {
                 <TextField name="newPassword" placeholder="New Password" />
                 <ErrorsField />
                 <SubmitField value="Submit" />
-                {error === '' ? (
-                  ''
-                ) : (
-                  <Alert variant="danger">
-                    <Alert.Heading>Error occurred</Alert.Heading>
-                    {error}
-                  </Alert>
-                )}
               </Card.Body>
             </Card>
           </AutoForm>
