@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
@@ -7,13 +7,11 @@ import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import swal from 'sweetalert';
 
-
-
 /* Renders the EditStuff page for editing a single document. */
 const EditProfile = () => {
   const [error, setError] = useState('');
   const [redirectToReferer, setRedirectToRef] = useState(false);
-  
+
   const schema = new SimpleSchema({
     firstName: String,
   });
@@ -29,7 +27,7 @@ const EditProfile = () => {
 
   const bridge = new SimpleSchema2Bridge(schema);
   const bridge2 = new SimpleSchema2Bridge(schemaLastName);
-  const bridge3 = new SimpleSchema(schemaUpdatePassword);
+  const bridge3 = new SimpleSchema2Bridge(schemaUpdatePassword);
   const submit = (data) => {
     const { firstName } = data;
     // const owner = Meteor.user().username;
@@ -55,6 +53,7 @@ const EditProfile = () => {
 
   const updatePassword = (data) => {
     const { oldPassword, newPassword } = data;
+    console.log(oldPassword);
     Accounts.changePassword(oldPassword, newPassword, (err) => {
       if (err) {
         setError(err.reason);
@@ -73,6 +72,7 @@ const EditProfile = () => {
           <Col className="text-center"><h2>Edit Profile</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
+              <Card.Header>Change first name</Card.Header>
               <Card.Body>
                 <TextField name="firstName" placeholder="first name" />
                 <ErrorsField />
@@ -82,10 +82,30 @@ const EditProfile = () => {
           </AutoForm>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge2} onSubmit={data => changeLastName(data, fRef)}>
             <Card>
+              <Card.Header>Change last name</Card.Header>
               <Card.Body>
                 <TextField name="lastName" placeholder="Last name" />
                 <ErrorsField />
                 <SubmitField value="Submit" />
+              </Card.Body>
+            </Card>
+          </AutoForm>
+          <AutoForm ref={ref => { fRef = ref; }} schema={bridge3} onSubmit={data => updatePassword(data, fRef)}>
+            <Card>
+              <Card.Header>Change password</Card.Header>
+              <Card.Body>
+                <TextField name="oldPassword" placeholder="Old Password" />
+                <TextField name="newPassword" placeholder="New Password" />
+                <ErrorsField />
+                <SubmitField value="Submit" />
+                {error === '' ? (
+                  ''
+                ) : (
+                  <Alert variant="danger">
+                    <Alert.Heading>Error occurred</Alert.Heading>
+                    {error}
+                  </Alert>
+                )}
               </Card.Body>
             </Card>
           </AutoForm>
