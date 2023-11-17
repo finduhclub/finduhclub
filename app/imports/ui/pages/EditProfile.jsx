@@ -1,32 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import swal from 'sweetalert';
 
-const schema = new SimpleSchema({
-  firstName: String,
-});
 
-const schemaLastName = new SimpleSchema({
-  lastName: String,
-});
-
-const bridge = new SimpleSchema2Bridge(schema);
-const bridge2 = new SimpleSchema2Bridge(schemaLastName);
 
 /* Renders the EditStuff page for editing a single document. */
 const EditProfile = () => {
+  const [error, setError] = useState('');
+  const [redirectToReferer, setRedirectToRef] = useState(false);
+  
+  const schema = new SimpleSchema({
+    firstName: String,
+  });
+
+  const schemaLastName = new SimpleSchema({
+    lastName: String,
+  });
+
+  const schemaUpdatePassword = new SimpleSchema({
+    oldPassword: String,
+    newPassword: String,
+  });
+
+  const bridge = new SimpleSchema2Bridge(schema);
+  const bridge2 = new SimpleSchema2Bridge(schemaLastName);
+  const bridge3 = new SimpleSchema(schemaUpdatePassword);
   const submit = (data) => {
     const { firstName } = data;
     // const owner = Meteor.user().username;
     Meteor.users.update(
       Meteor.userId(),
       { $set: { 'profile.firstName': firstName } },
-      (error) => (error ?
-        swal('Error', error.message, 'error') :
+      (errors) => (errors ?
+        swal('Error', errors.message, 'error') :
         swal('Success', 'Item updated successfully', 'success')),
     );
   };
@@ -36,10 +47,22 @@ const EditProfile = () => {
     Meteor.users.update(
       Meteor.userId(),
       { $set: { 'profile.lastName': lastName } },
-      (error) => (error ?
-        swal('Error', error.message, 'error') :
+      (errors) => (errors ?
+        swal('Error', errors.message, 'error') :
         swal('Success', 'Item updated successfully', 'success')),
     );
+  };
+
+  const updatePassword = (data) => {
+    const { oldPassword, newPassword } = data;
+    Accounts.changePassword(oldPassword, newPassword, (err) => {
+      if (err) {
+        setError(err.reason);
+      } else {
+        setError('');
+        setRedirectToRef(true);
+      }
+    });
   };
 
   let fRef = null;
