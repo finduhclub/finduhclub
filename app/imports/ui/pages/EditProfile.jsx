@@ -4,33 +4,43 @@ import { Meteor } from 'meteor/meteor';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
+import swal from 'sweetalert';
+
+const schema = new SimpleSchema({
+  firstName: String,
+  lastName: String,
+});
+
+const bridge = new SimpleSchema2Bridge(schema);
 
 /* Renders the EditStuff page for editing a single document. */
 const EditProfile = () => {
-  const schema = new SimpleSchema({
-    firstName: String,
-    LastName: String,
-  });
-
-  const bridge = new SimpleSchema2Bridge(schema);
-  const currentUser = Meteor.user();
-  const submit = (newName) => {
-    const { firstName, lastName } = newName;
-    Meteor.users.update({ profile: { firstName: firstName, lastName: lastName } });
+  // const userName = Meteor.user().username;
+  // const firstName = Meteor.user({ fields: { 'profile.firstName': 1 } }).profile.firstName;
+  // const lastName = Meteor.user({ fields: { 'profile.lastName': 1 } }).profile.lastName;
+  const submit = (data) => {
+    const { firstname, lastname } = data;
+    // const owner = Meteor.user().username;
+    Meteor.users.update(
+      { _id: Meteor.userId() },
+      { $set: { 'profile.firstName': firstname } },
+      { $set: { 'profile.lastName': lastname } },
+    );
   };
 
+  let fRef = null;
   return (
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={10}>
           <Col className="text-center"><h2>Edit Profile</h2></Col>
-          <AutoForm schema={bridge} onSubmit={data => submit(data)}>
+          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
-                <TextField name="firstName" placeholder={currentUser.profile.firstName} />
-                <TextField name="lastName" placeholder={currentUser.profile.lastName} />
+                <TextField name="firstName" placeholder="first name" />
+                <TextField name="lastName" placeholder="last name" />
                 <ErrorsField />
-                <SubmitField />
+                <SubmitField value="Submit" />
               </Card.Body>
             </Card>
           </AutoForm>

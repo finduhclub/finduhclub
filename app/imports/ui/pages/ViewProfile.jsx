@@ -1,10 +1,14 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row, Card, Link } from 'react-bootstrap';
+import { Col, Container, Row, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 /* Renders a card with all Profile information. */
 const ViewProfile = () => {
-  const currentUser = Meteor.user();
-  return ((
+  const userName = Meteor.user().username;
+  const firstName = Meteor.user({ fields: { 'profile.firstName': 1 } }).profile.firstName;
+  const lastName = Meteor.user({ fields: { 'profile.lastName': 1 } }).profile.lastName;
+  return (
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col>
@@ -14,21 +18,20 @@ const ViewProfile = () => {
           <Row>
             <Card className="h-100" width={100}>
               <Card.Header>
-                <Card.Title>{currentUser.username}</Card.Title>
-                <Card.Subtitle>{currentUser.username}</Card.Subtitle>
+                <Card.Title>{firstName} {lastName}</Card.Title>
+                <Card.Subtitle>{userName}</Card.Subtitle>
               </Card.Header>
               <Card.Body>
                 <Card.Text>
-                  {currentUser.profile.firstName}
+                  <Link to="/profile/edit">Edit</Link>
                 </Card.Text>
-                <Link to="/profile/edit">Edit</Link>
               </Card.Body>
             </Card>
           </Row>
         </Col>
       </Row>
     </Container>
-  ));
+  );
 };
 
 export default ViewProfile;
