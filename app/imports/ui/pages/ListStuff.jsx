@@ -2,23 +2,23 @@ import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Button, Modal, Form } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Stuffs } from '../../api/stuff/Stuff';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { Clubs } from '../../api/clubs/Clubs';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const ListStuff = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready } = useTracker(() => {
+  const { ready, clubs } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+    const subscription = Meteor.subscribe(Clubs.adminPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
-    const stuffItems = Stuffs.collection.find({}).fetch();
+    const clubItems = Clubs.collection.find().fetch();
     return {
-      stuffs: stuffItems,
+      clubs: clubItems,
       ready: rdy,
     };
   }, []);
@@ -32,6 +32,7 @@ const ListStuff = () => {
         <Col md={7}>
           <Col className="text-center">
             <h2>List Clubs</h2>
+            {clubs.map((club, index) => <p key={index}>{club.name}</p>)}
           </Col>
         </Col>
       </Row>
