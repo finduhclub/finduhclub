@@ -23,8 +23,7 @@ Meteor.publish(Profiles.userPublicationName, function () {
 
 Meteor.publish(Clubs.userPublicationName, function () {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Clubs.collection.find({ owner: username });
+    return Clubs.collection.find();
   }
   return this.ready();
 });

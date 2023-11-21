@@ -13,13 +13,15 @@ const ListStuff = () => {
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
     const subscription = Meteor.subscribe(Clubs.adminPublicationName);
+    const subscription2 = Meteor.subscribe(Clubs.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
+    const rdy2 = subscription2.ready();
     // Get the Stuff documents
     const clubItems = Clubs.collection.find().fetch();
     return {
       clubs: clubItems,
-      ready: rdy,
+      ready: rdy, rdy2,
     };
   }, []);
   const [show, setShow] = useState(false);
