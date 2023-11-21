@@ -70,7 +70,7 @@ const SignUp = ({ location }) => {
             </Alert>
           )}
         </Col>
-        <Col className="align-items-center text-center">
+        <Col id="welcome" className="align-items-center text-center">
           <h1 className="text-white">Welcome to <br /> Find UH Clubs</h1>
           <h5 className="text-white">Explore the vibrant campus life at the University of Hawaii at
             Mānoa with our user-friendly website, connecting students and clubs
