@@ -1,34 +1,43 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
-// import { array } from 'prop-types';
 
 /**
- * ClubsCollection, contains collection attributes and schema.
+ * The ClubsCollection. It encapsulates state and variable values for stuff.
  */
+
+const ClubTypes = [
+  'Academic/Professional', 'Ethnic/Cultural', 'Fraternity/Sorority', 'Honorary Society', 'Leisure/Recreational', 'Political', 'Religious/Spiritual', 'Service', 'Sports/Leisure', 'Student Affairs', 'Other',
+];
 class ClubsCollection {
   constructor() {
-    // Define clubs collection and schema
+    // The name of this collection.
     this.name = 'ClubsCollection';
+    // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
+    // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      clubName: String,
-      clubType: String,
-      clubImage: String,
-      clubDescription: String,
+      name: String,
+      image: String,
+      description: String,
       clubTime: String,
       clubEmail: String,
-      _id: String,
+      owner: String,
+      interests: Array,
+      'interests.$': {
+        type: String,
+        allowedValues: ClubTypes,
+      },
     });
-    // Make sure each club adheres to specified schema
+    // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
-    // Set names for publications and subscriptions
+    // Define names for publications and subscriptions
     this.userPublicationName = `${this.name}.publication.user`;
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }
 
 /**
- * ClubsCollection instance
+ * The singleton instance of the ClubsCollection.
  * @type {ClubsCollection}
  */
 export const Clubs = new ClubsCollection();
