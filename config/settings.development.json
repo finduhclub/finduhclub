@@ -28,6 +28,34 @@
     { "name": "Sports/Leisure" },
     { "name": "Student Affairs" },
     { "name": "Other" }
+
+  "defaultClubs": [
+    {
+      "name": "Tech Enthusiasts Club",
+      "image": "https://placekitten.com/300/200",
+      "description": "Explore the latest in technology and innovation with like-minded individuals.",
+      "clubTime": "Wednesday, 7:00 PM - 9:00 PM",
+      "clubEmail": "techclub@example.com",
+      "owner": "john@foo.com",
+      "interests": ["Academic/Professional"]
+    },
+    {
+      "name": "Adventure Seekers Society",
+      "image": "https://placebeard.it/300x200",
+      "description": "Embark on thrilling adventures and create lasting memories with our adventurous community.",
+      "clubTime": "Saturday, 2:00 PM - 4:00 PM",
+      "clubEmail": "adventuresociety@example.com",
+      "owner": "john@foo.com",
+      "interests": ["Leisure/Recreational"]
+    },
+    {
+      "name": "Global Cuisine Club",
+      "image": "https://placekitten.com/300/201",
+      "description": "Dive into the world of flavors with our diverse culinary experiences from around the globe.",
+      "clubTime": "Friday, 6:30 PM - 8:30 PM",
+      "clubEmail": "cuisineclub@example.com",
+      "owner": "admin@foo.com",
+      "interests": ["Ethnic/Cultural"]
+    }
   ]
 }
-
