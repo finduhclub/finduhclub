@@ -21,8 +21,7 @@ import ViewProfile from '../pages/ViewProfile';
 import Home from '../pages/Home';
 import ViewInterests from '../pages/ViewInterests';
 import AddClubs from '../pages/AddClubs';
-
-import ViewInterests from '../pages/ViewInterests';
+import AddStuff from '../pages/AddStuff';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {

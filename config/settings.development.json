@@ -28,6 +28,7 @@
     { "name": "Sports/Leisure" },
     { "name": "Student Affairs" },
     { "name": "Other" }
+  ],
 
   "defaultClubs": [
     {
