@@ -2,6 +2,17 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { Profiles } from '../../api/profiles/Profiles';
+import { Interests } from '../../api/interests/Interests';
+import { ProfilesInterests } from '../../api/join/ProfilesInterests';
+import { ProfilesClubs } from '../../api/join/ProfilesClubs';
+import { ClubsInterests } from '../../api/join/ClubsInterests';
+
+// All users publication.
+// Publishes all documents regardless of status.
+Meteor.publish(Interests.userPublicationName, () => Interests.collection.find());
+Meteor.publish(ProfilesInterests.userPublicationName, () => ProfilesInterests.collection.find());
+Meteor.publish(ProfilesClubs.userPublicationName, () => ProfilesClubs.collection.find());
+Meteor.publish(ClubsInterests.userPublicationName, () => ClubsInterests.collection.find());
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise, publish nothing.
@@ -12,6 +23,8 @@ Meteor.publish(Stuffs.userPublicationName, function () {
   }
   return this.ready();
 });
+// User-level publication.
+// If logged in, then publish documents owned by this user. Otherwise, publish nothing.
 Meteor.publish(Profiles.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
