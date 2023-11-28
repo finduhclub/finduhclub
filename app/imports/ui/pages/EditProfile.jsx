@@ -7,13 +7,13 @@ import SimpleSchema from 'simpl-schema';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 import { useTracker } from 'meteor/react-meteor-data';
+import LoadingSpinner from '../components/LoadingSpinner';
 import { Interests } from '../../api/interests/Interests';
 import { Profiles } from '../../api/profiles/Profiles';
 import { Clubs } from '../../api/clubs/Clubs';
 import { ProfilesClubs } from '../../api/join/ProfilesClubs';
 import { ProfilesInterests } from '../../api/join/ProfilesInterests';
 import { updateProfileMethod } from '../../startup/both/Methods';
-import LoadingSpinner from '../components/LoadingSpinner';
 
 /* Create a schema to specify the structure of the data to appear in the form. */
 const makeSchema = (allInterests, allClubs) => new SimpleSchema({
