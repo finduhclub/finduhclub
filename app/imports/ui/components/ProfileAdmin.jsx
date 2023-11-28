@@ -7,15 +7,17 @@ const ProfileAdmin = ({ profile }) => (
   <Card className="h-100" width={100}>
     <Card.Header>
       <Card.Img src={profile.image} width={75} />
-      <Card.Title>{profile.username}</Card.Title>
-      <Card.Subtitle>{profile.membership}</Card.Subtitle>
+      <Card.Title>{profile.name}</Card.Title>
+      <Card.Subtitle>
+        <ul>{profile.clubs.map(club => <li>{club}</li>)}</ul>
+      </Card.Subtitle>
     </Card.Header>
     <Card.Body>
       <Card.Text>
         <ul>{profile.interests.map(interest => <li>{interest}</li>)}</ul>
       </Card.Text>
       <br />
-      <footer className="blockquote-footer">{profile.ownerID}</footer>
+      <footer className="blockquote-footer">{profile.owner}</footer>
     </Card.Body>
   </Card>
 );
@@ -23,11 +25,11 @@ const ProfileAdmin = ({ profile }) => (
 // Require a document to be passed to this component.
 ProfileAdmin.propTypes = {
   profile: PropTypes.shape({
-    username: PropTypes.string,
+    name: PropTypes.string,
     image: PropTypes.string,
-    membership: PropTypes.string,
+    owner: PropTypes.string,
+    clubs: PropTypes.arrayOf(PropTypes.string),
     interests: PropTypes.arrayOf(PropTypes.string),
-    ownerID: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,
 };
