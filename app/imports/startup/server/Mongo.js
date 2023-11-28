@@ -2,8 +2,8 @@ import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Profiles } from '../../api/profiles/Profiles.js';
 import { Interests } from '../../api/interests/Interests.js';
-import { ProfilesInterests } from '../../api/join/ProfilesInterests.js';
-import { ProfilesClubs } from '../../api/join/ProfilesClubs.js';
+// import { ProfilesInterests } from '../../api/join/ProfilesInterests.js';
+// import { ProfilesClubs } from '../../api/join/ProfilesClubs.js';
 import { Clubs } from '../../api/clubs/Clubs.js';
 
 /* eslint-disable no-console */
