@@ -22,6 +22,7 @@ import Home from '../pages/Home';
 import ViewInterests from '../pages/ViewInterests';
 import AddClubs from '../pages/AddClubs';
 import AddStuff from '../pages/AddStuff';
+import ChangePassword from '../pages/ChangePassword';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -48,6 +49,7 @@ const App = () => {
           <Route path="/add" element={<ProtectedRoute><AddClubs /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
           <Route path="/profile/edit/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
+          <Route path="/profile/edit/changepassword" element={<ProtectedRoute><ChangePassword /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListProfilesAdmin /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />

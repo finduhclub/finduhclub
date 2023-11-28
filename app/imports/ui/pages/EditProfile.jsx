@@ -8,6 +8,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Profiles } from '../../api/profiles/Profiles';
+import { Link } from 'react-router-dom';
 
 const bridge = new SimpleSchema2Bridge(Profiles.schema);
 
@@ -46,6 +47,7 @@ const EditProfile = () => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body>
+                <Link to="/profile/edit/changepassword">Change Password</Link>
                 <Row>
                   <Col><TextField name="username" /></Col>
                 </Row>
