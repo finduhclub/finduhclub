@@ -77,6 +77,7 @@ const EditClubInfo = () => {
                 <TextField name="description" />
                 <TextField name="clubTime" />
                 <TextField name="clubEmail" />
+                <SelectField name="interests" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
               </Card.Body>
