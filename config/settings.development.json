@@ -5,8 +5,8 @@
   ],
 
   "defaultProfiles": [
-    { "ownerID": "john@foo.com", "username": "John", "image": "https://github.com/philipmjohnson.png", "membership": "None", "interests": ["Other"] },
-    { "ownerID":  "admin@foo.com", "username": "Admin", "image": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4", "membership": "Soccer Club", "interests": ["Sports/Leisure", "Service"] }
+    { "owner": "john@foo.com", "name": "John", "image": "https://github.com/philipmjohnson.png", "clubs": ["None"], "interests": ["Other"] },
+    { "owner":  "admin@foo.com", "name": "Admin", "image": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4", "clubs": ["Tech Enthusiasts Club"], "interests": ["Sports/Leisure", "Service"] }
   ],
 
   "defaultData": [
@@ -15,6 +15,21 @@
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
+
+  "defaultInterests": [
+    { "name": "Academic/Professional" },
+    { "name": "Ethnic/Cultural" },
+    { "name": "Fraternity/Sorority" },
+    { "name": "Honorary Society" },
+    { "name": "Leisure/Recreational" },
+    { "name": "Political" },
+    { "name": "Religious/Spiritual" },
+    { "name": "Service" },
+    { "name": "Sports/Leisure" },
+    { "name": "Student Affairs" },
+    { "name": "Other" }
+  ],
+
   "defaultClubs": [
     {
       "name": "Tech Enthusiasts Club",
@@ -42,6 +57,15 @@
       "clubEmail": "cuisineclub@example.com",
       "owner": "admin@foo.com",
       "interests": ["Ethnic/Cultural"]
+    },
+    {
+      "name": "None",
+      "image": "https://placekitten.com/300/201",
+      "description": "Find your club!",
+      "clubTime": "None",
+      "clubEmail": "temp@foo.com",
+      "owner": "admin@foo.com",
+      "interests": ["Other"]
     }
   ]
 }
