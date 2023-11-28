@@ -19,12 +19,12 @@ const updateProfileMethod = 'Profiles.update';
  * updated situation specified by the user.
  */
 Meteor.methods({
-  'Profiles.update'({ ownerID, username, image, interests, clubs }) {
-    Profiles.collection.update({ ownerID }, { $set: { username, image } });
-    ProfilesInterests.collection.remove({ profile: ownerID });
-    ProfilesClubs.collection.remove({ profile: ownerID });
-    interests.map((interest) => ProfilesInterests.collection.insert({ profile: ownerID, interest }));
-    clubs.map((project) => ProfilesClubs.collection.insert({ profile: ownerID, project }));
+  'Profiles.update'({ owner, name, image, interests, clubs }) {
+    Profiles.collection.update({ owner }, { $set: { name, image } });
+    ProfilesInterests.collection.remove({ profile: owner });
+    ProfilesClubs.collection.remove({ profile: owner });
+    interests.map((interest) => ProfilesInterests.collection.insert({ profile: owner, interest }));
+    clubs.map((club) => ProfilesClubs.collection.insert({ profile: owner, club }));
   },
 });
 
@@ -32,17 +32,17 @@ const addClubMethod = 'Clubs.add';
 
 /** Creates a new club in the Clubs collection, and also updates ProfilesClubs and ClubsInterests. */
 Meteor.methods({
-  'Clubs.add'({ clubName, clubType, clubImage, clubDescription, clubTime, clubEmail, interests, participants }) {
-    Clubs.collection.insert({ clubName, clubType, clubImage, clubDescription, clubTime, clubEmail });
-    ProfilesClubs.collection.remove({ project: clubName });
-    ClubsInterests.collection.remove({ project: clubName });
+  'Clubs.add'({ name, clubType, image, description, clubTime, clubEmail, interests, participants }) {
+    Clubs.collection.insert({ name, clubType, image, description, clubTime, clubEmail });
+    ProfilesClubs.collection.remove({ project: name });
+    ClubsInterests.collection.remove({ project: name });
     if (interests) {
-      interests.map((interest) => ClubsInterests.collection.insert({ club: clubName, interest }));
+      interests.map((interest) => ClubsInterests.collection.insert({ club: name, interest }));
     } else {
       throw new Meteor.Error('At least one interest is required.');
     }
     if (participants) {
-      participants.map((participant) => ProfilesClubs.collection.insert({ club: clubName, profile: participant }));
+      participants.map((participant) => ProfilesClubs.collection.insert({ club: name, profile: participant }));
     }
   },
 });

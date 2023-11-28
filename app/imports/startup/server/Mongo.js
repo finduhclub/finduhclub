@@ -38,7 +38,7 @@ if (Stuffs.collection.find().count() === 0) {
 
 // Initialize the database with a default data document.
 const addProfileData = (data) => {
-  console.log(`  Adding: ${data.username}`);
+  console.log(`  Adding: ${data.name}`);
   Profiles.collection.insert(data);
 };
 
@@ -64,11 +64,11 @@ if (Clubs.collection.find().count() === 0) {
 }
 
 /** Defines an associated profile for a user. Error if user already exists. */
-// function addProfile({ ownerID, username, image, interests, clubs }) {
-//   console.log(`Defining profile ${ownerID}`);
+// function addProfile({ owner, name, image, interests, clubs }) {
+//   console.log(`Defining profile ${owner}`);
 //   // Create the profile.
-//   Profiles.collection.insert({ ownerID, username, image });
+//   Profiles.collection.insert({ owner, name, image });
 //   // Add interests and projects.
-//   interests.map(interest => ProfilesInterests.collection.insert({ profile: ownerID, interest }));
-//   clubs.map(club => ProfilesClubs.collection.insert({ profile: ownerID, club }));
+//   interests.map(interest => ProfilesInterests.collection.insert({ profile: owner, interest }));
+//   clubs.map(club => ProfilesClubs.collection.insert({ profile: owner, club }));
 // }
