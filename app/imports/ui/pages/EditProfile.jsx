@@ -1,67 +1,91 @@
 import React from 'react';
+import { AutoForm, TextField, SelectField, SubmitField } from 'uniforms-bootstrap5';
+import { Container, Col, Card, Row } from 'react-bootstrap';
 import swal from 'sweetalert';
-import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, HiddenField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
-import { Meteor } from 'meteor/meteor';
-import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { useParams } from 'react-router';
-import LoadingSpinner from '../components/LoadingSpinner';
+import SimpleSchema from 'simpl-schema';
+import { Meteor } from 'meteor/meteor';
+import { _ } from 'meteor/underscore';
+import { useTracker } from 'meteor/react-meteor-data';
+import { Interests } from '../../api/interests/Interests';
 import { Profiles } from '../../api/profiles/Profiles';
+import { Clubs } from '../../api/clubs/Clubs';
+import { ProfilesClubs } from '../../api/join/ProfilesClubs';
+import { ProfilesInterests } from '../../api/join/ProfilesInterests';
+import { updateProfileMethod } from '../../startup/both/Methods';
+import LoadingSpinner from '../components/LoadingSpinner';
 
-const bridge = new SimpleSchema2Bridge(Profiles.schema);
+/* Create a schema to specify the structure of the data to appear in the form. */
+const makeSchema = (allInterests, allClubs) => new SimpleSchema({
+  owner: { type: String, label: 'Email', optional: true },
+  name: { type: String, label: 'Name', optional: true },
+  image: { type: String, label: 'Picture URL', optional: true },
+  interests: { type: Array, label: 'Interests', optional: true },
+  'interests.$': { type: String, allowedValues: allInterests },
+  clubs: { type: Array, label: 'Clubs', optional: true },
+  'clubs.$': { type: String, allowedValues: allClubs },
+});
 
-/* Renders the EditStuff page for editing a single document. */
+/* Renders the Home Page: what appears after the user logs in. */
 const EditProfile = () => {
-  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
-  const { _id } = useParams();
-  // console.log('EditStuff', _id);
-  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { doc, ready } = useTracker(() => {
-    // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Profiles.userPublicationName);
-    // Determine if the subscription is ready
-    const rdy = subscription.ready();
-    // Get the document
-    const document = Profiles.collection.findOne(_id);
-    return {
-      doc: document,
-      ready: rdy,
-    };
-  }, [_id]);
-  // console.log('EditStuff', doc, ready);
-  // On successful submit, insert the data.
+
+  /* On submit, insert the data. */
   const submit = (data) => {
-    const { username, image, membership, interests } = data;
-    Profiles.collection.update(_id, { $set: { username, image, membership, interests } }, (error) => (error ?
-      swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+    Meteor.call(updateProfileMethod, data, (error) => {
+      if (error) {
+        swal('Error', error.message, 'error');
+      } else {
+        swal('Success', 'Profile updated successfully', 'success');
+      }
+    });
   };
 
+  const { ready, owner } = useTracker(() => {
+    // Ensure that minimongo is populated with all collections prior to running render().
+    const sub1 = Meteor.subscribe(Interests.userPublicationName);
+    const sub2 = Meteor.subscribe(Profiles.userPublicationName);
+    const sub3 = Meteor.subscribe(ProfilesInterests.userPublicationName);
+    const sub4 = Meteor.subscribe(ProfilesClubs.userPublicationName);
+    const sub5 = Meteor.subscribe(Clubs.userPublicationName);
+    return {
+      ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready(),
+      owner: Meteor.user()?.username,
+    };
+  }, []);
+  // Create the form schema for uniforms. Need to determine all interests and clubs for muliselect list.
+  const allInterests = _.pluck(Interests.collection.find().fetch(), 'name');
+  const allClubs = _.pluck(Clubs.collection.find().fetch(), 'name');
+  const formSchema = makeSchema(allInterests, allClubs);
+  const bridge = new SimpleSchema2Bridge(formSchema);
+  // Now create the model with all the user information.
+  const clubs = _.pluck(ProfilesClubs.collection.find({ profile: owner }).fetch(), 'club');
+  const interests = _.pluck(ProfilesInterests.collection.find({ profile: owner }).fetch(), 'interest');
+  const profile = Profiles.collection.findOne({ owner });
+  const model = _.extend({}, profile, { interests, clubs });
+  // console.log(`Model: ${JSON.stringify(model)}`);
   return ready ? (
-    <Container className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={10}>
-          <Col className="text-center"><h2>Edit Profile</h2></Col>
-          <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
-            <Card>
-              <Card.Body>
-                <Row>
-                  <Col><TextField name="username" /></Col>
-                </Row>
-                <Row>
-                  <Col><TextField name="image" /></Col>
-                  <Col><TextField name="membership" /></Col>
-                </Row>
-                <Row><SelectField name="interests" /></Row>
-                <SubmitField value="Submit" />
-                <ErrorsField />
-                <HiddenField name="ownerID" />
-              </Card.Body>
-            </Card>
-          </AutoForm>
-        </Col>
-      </Row>
+    <Container className="justify-content-center">
+      <Col>
+        <Col className="justify-content-center text-center"><h2>Your Profile</h2></Col>
+        <AutoForm model={model} schema={bridge} onSubmit={data => submit(data)}>
+          <Card>
+            <Card.Body>
+              <Row className="justify-content-evenly">
+                <Col xs={6}><TextField name="name" showInlineError placeholder="Display Name" /></Col>
+                <Col xs={6}><TextField name="owner" showInlineError placeholder="Email" disabled /></Col>
+              </Row>
+              <Row>
+                <Col xs={6}><TextField name="image" showInlineError placeholder="URL to image" /></Col>
+              </Row>
+              <Row>
+                <Col xs={6}><SelectField name="interests" showInlineError multiple /></Col>
+                <Col xs={6}><SelectField name="clubs" showInlineError multiple /></Col>
+              </Row>
+              <SubmitField value="Update" />
+            </Card.Body>
+          </Card>
+        </AutoForm>
+      </Col>
     </Container>
   ) : <LoadingSpinner />;
 };
