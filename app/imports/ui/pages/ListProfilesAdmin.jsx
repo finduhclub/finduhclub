@@ -1,12 +1,17 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
+import { _ } from 'meteor/underscore';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Profiles } from '../../api/profiles/Profiles';
+import { Clubs } from '../../api/clubs/Clubs';
+import { ProfilesInterests } from '../../api/join/ProfilesInterests';
+import { ProfilesClubs } from '../../api/join/ProfilesClubs';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ProfileAdmin from '../components/ProfileAdmin';
+import { getProfileData } from '../methods/methods.js';
 
-/* Renders a table containing all of the Stuff documents. Use <StuffItemAdmin> to render each row. */
+/* Renders the Profile Collection as a set of Cards. */
 const ListProfilesAdmin = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { profiles, ready } = useTracker(() => {
