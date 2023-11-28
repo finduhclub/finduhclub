@@ -1,7 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
-import { _ } from 'meteor/underscore';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Profiles } from '../../api/profiles/Profiles';
 import { Clubs } from '../../api/clubs/Clubs';
@@ -26,7 +25,6 @@ const ViewProfile = () => {
   }, []);
   const userId = Meteor.userId(); // Get the current user's ID
   const owner = userId ? Meteor.users.findOne(userId)?.username : '';
-  // const owner = _.pluck(Profiles.collection.find({ owner: username }).fetch(), 'owner');
   console.log(`userID: ${userId}, owner: ${owner}`);
 
   // There is a potential race condition. We might not be ready at this point.

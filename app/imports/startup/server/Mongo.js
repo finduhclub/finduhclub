@@ -5,7 +5,7 @@ import { Interests } from '../../api/interests/Interests.js';
 import { Clubs } from '../../api/clubs/Clubs.js';
 import { ProfilesInterests } from '../../api/join/ProfilesInterests.js';
 import { ProfilesClubs } from '../../api/join/ProfilesClubs.js';
-import { ClubsInterests } from '../../api/join/ClubsInterests.js';
+// import { ClubsInterests } from '../../api/join/ClubsInterests.js';
 
 /* eslint-disable no-console */
 
