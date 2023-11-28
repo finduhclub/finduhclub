@@ -64,11 +64,11 @@ if (Clubs.collection.find().count() === 0) {
 }
 
 /** Defines an associated profile for a user. Error if user already exists. */
-function addProfile({ ownerID, username, image, interests, clubs }) {
-  console.log(`Defining profile ${ownerID}`);
-  // Create the profile.
-  Profiles.collection.insert({ ownerID, username, image });
-  // Add interests and projects.
-  interests.map(interest => ProfilesInterests.collection.insert({ profile: ownerID, interest }));
-  clubs.map(club => ProfilesClubs.collection.insert({ profile: ownerID, club }));
-}
+// function addProfile({ ownerID, username, image, interests, clubs }) {
+//   console.log(`Defining profile ${ownerID}`);
+//   // Create the profile.
+//   Profiles.collection.insert({ ownerID, username, image });
+//   // Add interests and projects.
+//   interests.map(interest => ProfilesInterests.collection.insert({ profile: ownerID, interest }));
+//   clubs.map(club => ProfilesClubs.collection.insert({ profile: ownerID, club }));
+// }
