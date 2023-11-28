@@ -4,6 +4,7 @@ import { Col, Container, Row, Button, Modal, Form } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Clubs } from '../../api/clubs/Clubs';
+import Club from '../components/Club';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const ListStuff = () => {
@@ -28,14 +29,26 @@ const ListStuff = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  function chunkArray(arr, size) {
+    return Array.from({ length: Math.ceil(arr.length / size) }, (v, i) => arr.slice(i * size, i * size + size));
+  }
+
   return (ready ? (
     <Container fluid className="py-3">
       <Row className="justify-content-center">
-        <Col md={7}>
+        <Col>
           <Col className="text-center">
             <h2>List Clubs</h2>
-            {clubs.map((club, index) => <p key={index}>{club.name}</p>)}
           </Col>
+          {chunkArray(clubs, 3).map((row, rowIndex) => (
+            <Row key={rowIndex} className="pb-4">
+              {row.map((club, colIndex) => (
+                <Col key={colIndex} xs={4}>
+                  <Club club={club} />
+                </Col>
+              ))}
+            </Row>
+          ))}
         </Col>
       </Row>
       <hr />
