@@ -23,7 +23,6 @@ import ViewInterests from '../pages/ViewInterests';
 import AddClubs from '../pages/AddClubs';
 import ListClubsAdmin from '../pages/ListClubsAdmin';
 import EditClubInfo from '../pages/EditClubInfo';
-import AddStuff from '../pages/AddStuff';
 import ChangePassword from '../pages/ChangePassword';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
