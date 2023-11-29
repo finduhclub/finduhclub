@@ -1,15 +1,15 @@
 import { Selector } from 'testcafe';
 
-class LandingPage {
+class ViewProfilePage {
   constructor() {
-    this.pageId = '#signup-page';
+    this.pageId = '#view-profile';
     this.pageSelector = Selector(this.pageId);
   }
 
-  /** Asserts that this page is currently displayed. */
+  /** Checks that this page is currently displayed. */
   async isDisplayed(testController) {
     await testController.expect(this.pageSelector.exists).ok();
   }
 }
 
-export const landingPage = new LandingPage();
+export const viewProfilePage = new ViewProfilePage();

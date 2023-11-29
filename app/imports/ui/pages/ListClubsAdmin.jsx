@@ -29,11 +29,11 @@ const ListClubsAdmin = () => {
   }
 
   return (ready ? (
-    <Container className="py-3">
+    <Container id="list-clubs-admin" className="py-3">
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
-            <h2>List Clubs</h2>
+            <h2>Manage Clubs (Admin)</h2>
           </Col>
           {chunkArray(clubs, 3).map((row, rowIndex) => (
             <Row key={rowIndex} className="pb-4">
