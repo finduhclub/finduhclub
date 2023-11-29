@@ -65,6 +65,10 @@ class NavBar {
   async gotoManageClubsPage(testController) {
     await testController.click('#manage-clubs-admin-nav');
   }
+
+  async gotoAddClubsPage(testController) {
+    await testController.click('#add-clubs-nav');
+  }
 }
 
 export const navBar = new NavBar();

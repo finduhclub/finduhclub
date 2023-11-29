@@ -5,6 +5,7 @@ import { navBar } from './navbar.component';
 import { listClubsPage } from './listclubs.page';
 import { viewProfilePage } from './viewprofile.page';
 import { manageClubsPage } from './manageclubs.page';
+import { addClubsPage } from './addclubs.page';
 
 /* global fixture:false, test:false */
 
@@ -42,9 +43,17 @@ test('Test that view profile page displays', async (testController) => {
   await viewProfilePage.isDisplayed(testController);
 });
 
-test.only('Test that manage clubs admin page displays', async (testController) => {
+test('Test that manage clubs admin page displays', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentialsAdmin.username, credentialsAdmin.password);
   await navBar.gotoManageClubsPage(testController);
   await manageClubsPage.isDisplayed(testController);
 });
+
+/** test('Test that add clubs admin page works', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentialsAdmin.username, credentialsAdmin.password);
+  await navBar.gotoAddClubsPage(testController);
+  await addClubsPage.isDisplayed(testController);
+  await addClubsPage.addClub(testController);
+}); */
