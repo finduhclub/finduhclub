@@ -5,7 +5,7 @@ import { navBar } from './navbar.component';
 import { listClubsPage } from './listclubs.page';
 import { viewProfilePage } from './viewprofile.page';
 import { manageClubsPage } from './manageclubs.page';
-import { addClubsPage } from './addclubs.page';
+// import { addClubsPage } from './addclubs.page';
 
 /* global fixture:false, test:false */
 
