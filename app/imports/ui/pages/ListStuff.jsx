@@ -34,7 +34,7 @@ const ListStuff = () => {
   }
 
   return (ready ? (
-    <Container fluid className="py-3">
+    <Container id="list-clubs" fluid className="py-3">
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
