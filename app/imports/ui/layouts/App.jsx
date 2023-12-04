@@ -6,8 +6,7 @@ import { Roles } from 'meteor/alanning:roles';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import ListStuff from '../pages/ListStuff';
-import EditStuff from '../pages/EditStuff';
+import ListClubs from '../pages/ListClubs';
 import ListProfilesAdmin from '../pages/ListProfilesAdmin';
 import EditProfile from '../pages/EditProfile';
 import NotFound from '../pages/NotFound';
@@ -43,11 +42,10 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-          <Route path="/list" element={<ProtectedRoute><ListStuff /></ProtectedRoute>} />
+          <Route path="/list" element={<ProtectedRoute><ListClubs /></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><ViewProfile /></ProtectedRoute>} />
           <Route path="/interests" element={<ProtectedRoute><ViewInterests /></ProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><AddClubs /></ProtectedRoute>} />
-          <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
           <Route path="/profile/edit/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
           <Route path="/clubAdmin/edit/:_id" element={<ProtectedRoute><EditClubInfo /></ProtectedRoute>} />
           <Route path="/profile/edit/changepassword" element={<ProtectedRoute><ChangePassword /></ProtectedRoute>} />

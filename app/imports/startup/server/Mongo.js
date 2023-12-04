@@ -1,5 +1,4 @@
 import { Meteor } from 'meteor/meteor';
-import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Profiles } from '../../api/profiles/Profiles.js';
 import { Interests } from '../../api/interests/Interests.js';
 import { Clubs } from '../../api/clubs/Clubs.js';
@@ -20,20 +19,6 @@ if (Interests.collection.find().count() === 0) {
   if (Meteor.settings.defaultInterests) {
     console.log('Creating default interests.');
     Meteor.settings.defaultInterests.forEach(data => addData(data));
-  }
-}
-
-// Initialize the database with a default data document.
-const addStuffData = (data) => {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
-  Stuffs.collection.insert(data);
-};
-
-// Initialize the StuffsCollection if empty.
-if (Stuffs.collection.find().count() === 0) {
-  if (Meteor.settings.defaultData) {
-    console.log('Creating default data.');
-    Meteor.settings.defaultData.forEach(data => addStuffData(data));
   }
 }
 
@@ -60,7 +45,7 @@ const addClubData = (data) => {
   Clubs.collection.insert(data);
 };
 
-// Initialize the StuffsCollection if empty.
+// Initialize the ClubsCollection if empty.
 if (Clubs.collection.find().count() === 0) {
   if (Meteor.settings.defaultClubs) {
     console.log('Creating default clubs.');

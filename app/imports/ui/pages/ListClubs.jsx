@@ -7,7 +7,7 @@ import { Clubs } from '../../api/clubs/Clubs';
 import Club from '../components/Club';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-const ListStuff = () => {
+const ListClubs = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, clubs } = useTracker(() => {
     // Note that this subscription will get cleaned up
@@ -145,4 +145,4 @@ const ListStuff = () => {
   ) : <LoadingSpinner />);
 };
 
-export default ListStuff;
+export default ListClubs;
