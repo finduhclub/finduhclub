@@ -6,7 +6,7 @@ import { Roles } from 'meteor/alanning:roles';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import ListStuff from '../pages/ListStuff';
+import ListClubs from '../pages/ListClubs';
 import EditStuff from '../pages/EditStuff';
 import ListProfilesAdmin from '../pages/ListProfilesAdmin';
 import EditProfile from '../pages/EditProfile';
@@ -43,7 +43,7 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-          <Route path="/list" element={<ProtectedRoute><ListStuff /></ProtectedRoute>} />
+          <Route path="/list" element={<ProtectedRoute><ListClubs /></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><ViewProfile /></ProtectedRoute>} />
           <Route path="/interests" element={<ProtectedRoute><ViewInterests /></ProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><AddClubs /></ProtectedRoute>} />

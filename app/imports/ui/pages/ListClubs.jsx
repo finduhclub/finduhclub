@@ -15,7 +15,7 @@ import { ClubsInterests } from '../../api/join/ClubsInterests';
 import * as clubInterestsLists from 'underscore';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-const ListStuff = () => {
+const ListClubs = () => {
   const makeSchema = (allInterests) => new SimpleSchema({
     interests: { type: Array, label: 'Interests', optional: true},
     'interests.$': { type: String, allowedValues: allInterests },
@@ -122,4 +122,4 @@ const ListStuff = () => {
   ) : <LoadingSpinner />);
 };
 
-export default ListStuff;
+export default ListClubs;
