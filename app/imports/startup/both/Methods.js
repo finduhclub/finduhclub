@@ -19,7 +19,7 @@ const addProfileMethod = 'Profiles.add';
  */
 Meteor.methods({
   'Profiles.add'({ owner }) {
-    Profiles.collection.insert({ owner, name: 'John', image: '/images/polar-bear.jpg' });
+    Profiles.collection.insert({ owner, name: 'John', image: '/images/bear.jpg' });
   },
 });
 

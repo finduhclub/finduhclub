@@ -1,6 +1,6 @@
 import React from 'react';
 import { AutoForm, TextField, SelectField, SubmitField } from 'uniforms-bootstrap5';
-import { Container, Col, Card, Row } from 'react-bootstrap';
+import { Container, Col, Card, Row, Image } from 'react-bootstrap';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
@@ -26,7 +26,7 @@ const makeSchema = (allInterests, allClubs) => new SimpleSchema({
   'clubs.$': { type: String, allowedValues: allClubs },
 });
 
-/* Renders the Home Page: what appears after the user logs in. */
+/* Renders the EditProfile Page: what appears after the user logs in. */
 const EditProfile = () => {
 
   /* On submit, insert the data. */
@@ -76,6 +76,22 @@ const EditProfile = () => {
               </Row>
               <Row>
                 <Col xs={6}><TextField name="image" showInlineError placeholder="URL to image" /></Col>
+                <Col xs={6}>Default Image Options:
+                  <Row>
+                    <Col className="text-center small">
+                      <img className="pfp-preview" src="/images/pb.jpg" alt="default pfp" />
+                      /images/pb.jpg
+                    </Col>
+                    <Col className="text-center small">
+                      <img className="pfp-preview" src="/images/cat.jpg" alt="default pfp" />
+                      /images/cat.jpg
+                    </Col>
+                    <Col className="text-center small">
+                      <img className="pfp-preview" src="/images/bear.jpg" alt="default pfp" />
+                      /images/bear.jpg
+                    </Col>
+                  </Row>
+                </Col>
               </Row>
               <Row>
                 <Col xs={6}><SelectField name="interests" showInlineError multiple /></Col>
