@@ -6,6 +6,9 @@ import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { addProfileMethod } from '../../startup/both/Methods';
+import { Meteor } from 'meteor/meteor';
+import swal from 'sweetalert';
 
 /**
  * SignUp component is similar to signin component, but we create a new user instead.
@@ -31,10 +34,18 @@ const SignUp = ({ location }) => {
         setRedirectToRef(true);
       }
     });
+    console.log(`Defining profile ${email}`);
+    Meteor.call(addProfileMethod, { owner: email }, (err) => {
+      if (err) {
+        swal('Error', err.message, 'error');
+      } else {
+        swal('Success', 'Profile created successfully', 'success');
+      }
+    });
   };
 
   /* Display the signup form. Redirect to add page after successful registration and login. */
-  const { from } = location?.state || { from: { pathname: '/add' } };
+  const { from } = location?.state || { from: { pathname: '/profile/edit/:_id' } };
   // if correct authentication, redirect to from: page instead of signup screen
   if (redirectToReferer) {
     return <Navigate to={from} />;

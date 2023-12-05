@@ -11,6 +11,18 @@ import { ClubsInterests } from '../../api/join/ClubsInterests';
  * on the selectors are removed for server-side code.
  */
 
+const addProfileMethod = 'Profiles.add';
+
+/**
+ * The server-side Profiles.insert Meteor Method is called by the client-side signup page after pushing the submit button.
+ * Its purpose is to create a defalut profile for the new user.
+ */
+Meteor.methods({
+  'Profiles.add'({ owner }) {
+    Profiles.collection.insert({ owner, name: 'John', image: '/images/polar-bear.jpg' });
+  },
+});
+
 const updateProfileMethod = 'Profiles.update';
 
 /**
@@ -47,4 +59,4 @@ Meteor.methods({
   },
 });
 
-export { updateProfileMethod, addClubMethod };
+export { addProfileMethod, updateProfileMethod, addClubMethod };
