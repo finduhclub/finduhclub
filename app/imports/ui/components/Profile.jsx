@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 /** Renders a profile card. See pages/ViewProfile.jsx. */
 const Profile = ({ profile }) => (
@@ -17,8 +16,6 @@ const Profile = ({ profile }) => (
       <Card.Text>
         <ul id="intrests-list">{profile.interests.map((interest, index) => <li key={index}>{interest}</li>)}</ul>
       </Card.Text>
-      <br />
-      <Link to={`/profile/edit/${profile._id}`}>Edit</Link>
     </Card.Body>
   </Card>
 );
