@@ -57,3 +57,10 @@ footer, footer a {
   width: 75px !important;
 }
 
+/* Style for default profile image options */
+.pfp-preview {
+  width: 75px;
+  height: 75px;
+  border-radius: 25%;
+  object-fit: cover;
+}
