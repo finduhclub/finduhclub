@@ -1,10 +1,13 @@
 import { landingPage } from './landing.page';
+import { homePage } from './home.page';
 import { signinPage } from './signin.page';
 import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
 import { listClubsPage } from './listclubs.page';
 import { viewProfilePage } from './viewprofile.page';
+// import { editProfilePage } from './editprofile.page';
 import { manageClubsPage } from './manageclubs.page';
+// import { manageProfilesPage } from './manageprofiles.page';
 // import { addClubsPage } from './addclubs.page';
 
 /* global fixture:false, test:false */
@@ -21,10 +24,19 @@ test('Test that landing page shows up', async (testController) => {
   await landingPage.isDisplayed(testController);
 });
 
-test('Test that signin and signout work', async (testController) => {
+test('Test that signin and signout work. Test home redirect.', async (testController) => {
+  // For regular user
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);
+  await homePage.isDisplayed(testController);
+  await navBar.logout(testController);
+  await signoutPage.isDisplayed(testController);
+  // For admin user
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentialsAdmin.username, credentialsAdmin.password);
+  await navBar.isLoggedIn(testController, credentialsAdmin.username);
+  await homePage.isDisplayed(testController);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
 });
