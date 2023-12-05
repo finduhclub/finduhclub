@@ -12,8 +12,9 @@ const NavBar = () => {
     currentUser: Meteor.user() ? Meteor.user().username : '',
   }), []);
 
-  // Extract the _id from the user's profile
-  const profileId = currentUser && currentUser.profile && currentUser.profile._id;
+  const { userId } = useTracker(() => ({
+    userId: Meteor.userId() ? Meteor.userId() : '',
+  }));
 
   return (
     <Navbar bg="light" expand="lg">
@@ -33,7 +34,7 @@ const NavBar = () => {
             {currentUser ? ([
               <Nav.Link id="list-clubs-nav" as={NavLink} to="/list" key="list">View Clubs</Nav.Link>,
               <Nav.Link id="list-profile-nav" as={NavLink} to="/profile" key="list">View Profile</Nav.Link>,
-              <Nav.Link id="edit-profile-nav" as={NavLink} to={`/profile/edit/${profileId}`} key="edit">Edit Profile</Nav.Link>,
+              <Nav.Link id="edit-profile-nav" as={NavLink} to={`/profile/edit/${userId}`} key="edit">Edit Profile</Nav.Link>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? ([
               <Nav.Link id="add-clubs-nav" as={NavLink} to="/add" key="add">Add Clubs</Nav.Link>,
