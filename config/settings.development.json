@@ -32,31 +32,455 @@
 
   "defaultClubs": [
     {
-      "name": "Tech Enthusiasts Club",
-      "image": "https://placekitten.com/300/200",
-      "description": "Explore the latest in technology and innovation with like-minded individuals.",
-      "clubTime": "Wednesday, 7:00 PM - 9:00 PM",
-      "clubEmail": "techclub@example.com",
-      "owner": "john@foo.com",
+      "name": "Accounting Club",
+      "image": "https://images.squarespace-cdn.com/content/v1/5f2371858296275165c4fed8/1598171416577-93L1YDJ9YHL3W7F5AMCA/New-AC-Logo-1024x1024.png?format=1500w",
+      "description": "The purpose of this organization shall be:\nA. To provide members with opportunities for academic, personal, and professional development so they may contribute effectively and ethically to society and their organizations.\nB. To serve the community and develop conscientious members of the community through participation in civic activities.\nC. To build unity within the club while establishing friendships and networks that extend beyond the college career.\nD. To educate members about the opportunity provided by all sectors of the accounting industry.\nE. To aspire continuous improvement in all activities to ensure that members perform effectively in today’s business environment.",
+      "clubTime": "Contact Club",
+      "clubEmail": "aagag@hawaii.edu",
+      "owner": "admin@foo.com",
       "interests": ["Academic/Professional"]
     },
     {
-      "name": "Adventure Seekers Society",
-      "image": "https://placebeard.it/300x200",
-      "description": "Embark on thrilling adventures and create lasting memories with our adventurous community.",
-      "clubTime": "Saturday, 2:00 PM - 4:00 PM",
-      "clubEmail": "adventuresociety@example.com",
-      "owner": "john@foo.com",
+      "name": "Advocates for Public Interest Law",
+      "image": "https://manoa.hawaii.edu/speakers/wp-content/uploads/logo-1.png",
+      "description": "APIL aims to raise the consciousness of Hawai‘i’s law students and the entire legal community regarding public interest law. APIL does so by holding educational events and panels with Hawai'i attorneys working in public interest fields and by awarding several grants each spring to Hawai‘i law students, enabling them to intern with various public interest organizations during their summer recess. The goal of these grants is to provide legal services to underrepresented groups in the community, while providing valuable training and experience to each of our grantees.",
+      "clubTime": "Contact Club",
+      "clubEmail": "ef6@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Political"]
+    },
+    {
+      "name": "Addiction Medicine & Harm Reduction Interest Group",
+      "image": "https://manoa.hawaii.edu/speakers/wp-content/uploads/logo-1.png",
+      "description": "“The Addiction Medicine & Harm Reduction Interest Group aims to increase student understanding of harm reduction principles and practices in the context of addiction medicine and public health, with a particular focus on Hawai'i-specific challenges and resources.",
+      "clubTime": "Contact Club",
+      "clubEmail": "jayokoya@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Academic/Professional"]
+    },
+    {
+      "name": "AECT- Hawaii at Manoa (AECT-HI)",
+      "image": "https://coe.hawaii.edu/aecthi/wp-content/uploads/sites/22/2022/03/AECT-HI-Logos1-1200x473.png",
+      "description": "The AECT-HI Chapter is organized to provide a campus-based focal point for individuals interested in using technology in training and education in association with the University of Hawaii at Manoa Department of Learning Design and Technology (LTEC). The purpose of the Chapter is to provide professional development activities, leadership opportunities, and social interaction for its Members. The mission of AECT-HI is to build a network among LTEC students, faculty, and alumni. Further AECT-HI aims to foster interaction and partnerships with AECT Chapters at other universities and the global AECT community.",
+      "clubTime": "Contact Club",
+      "clubEmail": "cartermd@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Academic/Professional"]
+    },
+    {
+      "name": "Aikido at UHM",
+      "image": "https://www.aikidohawaii.org/images/toplogo.gif",
+      "description": "We practice Aikido.",
+      "clubTime": "Contact Club",
+      "clubEmail": "halliday@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Sports/Leisure"]
+    },
+    {
+      "name": "Alpha Omega Hawaii",
+      "image": "https://s.smore.com/u/c2a1bcac52f9c79ad7dc5127c3188711.png",
+      "description": "A.The primary function of Alpha Omega Hawaii will be to provide students with the opportunity for spiritual growth by interacting with other students who are Christians at UH and\nB. To encourage academic excellence\nC. Alpha Omega Hawaii aims to encourage members to uphold the standards held and established by the University policies.",
+      "clubTime": "Contact Club",
+      "clubEmail": "mmorrell@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Religious/Spiritual"]
+    },
+    {
+      "name": "Alpha Sigma Phi",
+      "image": "https://img1.wsimg.com/isteam/ip/f462eca5-24f6-4531-81f7-6819824ee6a1/Letters%20BLK%20Outline-aa6fa3d.png/:/rs=w:641,h:373,cg:true,m/cr=w:641,h:373/qt=q:95",
+      "description": "Alpha Sigma Phi strives to become the fraternity of choice among undergraduate men coming to the University of Hawaii at Manoa. Alpha Sigma Phi's overall mission is focused on producing academically accomplished, socially acceptable, and physically active leaders consisting of undergraduate men of all backgrounds and beliefs. Our goal every year is to not only improve our organization but better UHM's Greek Life as a whole through our actions of service and collaboration with philanthropic organizations and other Greek RIOs.",
+      "clubTime": "Contact Club",
+      "clubEmail": "senverso@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Fraternity/Sorority"]
+    },
+    {
+      "name": "Alpha Gamma Delta Delta Sigma",
+      "image": "https://static.wixstatic.com/media/2468d8_d62c4e2f9739421083d662cce8263f07~mv2.png/v1/fill/w_351,h_119,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/AlphaGammaDeltacolor.png",
+      "description": "Alpha Gamma Delta is an international women's organization committed to providing opportunities for personal development, service to others and a space for members to forge their own paths—all through a lifelong spirit of sisterhood. Inspired by the vision and values defined by our Founders, Alpha Gamma Delta challenges members to lead lives of significance that positively impact their communities. Together, we continually work to: Inspire the Woman. Impact the World.",
+      "clubTime": "Contact Club",
+      "clubEmail": "cbarreca@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Fraternity/Sorority"]
+    },
+    {
+      "name": "Alohathon",
+      "image": "https://pbs.twimg.com/profile_images/1281840042940395520/nSFuezjS_400x400.jpg",
+      "description": "Dance marathon to raise money for Kapiolani women’s and children’s hospital",
+      "clubTime": "Contact Club",
+      "clubEmail": "lynchsf@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Service"]
+    },
+    {
+      "name": "American Association of University Women at the University of Hawaiʻi at Mānoa",
+      "image": "https://manoa.hawaii.edu/undergrad/civic-engage/wp-content/uploads/2020/06/American_Association_of_University_Women_AAUW_logo.png",
+      "description": "The mission of our RIO is to promote the values of AAUW on the UHM campus and in the community. We are working towards equity in society by providing the tools necessary for women to gain economic security, to pursue their education, and advocate for women's rights.",
+      "clubTime": "Contact Club",
+      "clubEmail": "sulee@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Political"]
+    },
+    {
+      "name": "American Hotel & Lodging Association [AHLA]",
+      "image": "https://www.ahla.com/themes/custom/ahla_v2/assets/img/ahla-logomark.png",
+      "description": "To develop student advocates for America's hospitality and lodging industry through education, valuable experiences and available resources.",
+      "clubTime": "Contact Club",
+      "clubEmail": "weiqihu@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Academic/Professional"]
+    },
+    {
+      "name": "Ballroom Dance Club @UH",
+      "image": "https://www.hbdahawaii.org/wp-content/uploads/2014/05/logo-retina.jpg",
+      "description": "Promote social and competitive ballroom dance within the UH community",
+      "clubTime": "Contact Club",
+      "clubEmail": "rnarayan@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Sports/Leisure"]
+    },
+    {
+      "name": "Black Student Association",
+      "image": "https://bsauhmanoa.files.wordpress.com/2017/03/cropped-14444790_10208596539403333_2067028054416648963_o1.jpg?w=200",
+      "description": "The Black Student Association (BSA) was established in 2016 in response to the lack of representation for Black students, faculty, and staff at the University of Hawaiʻi at Mānoa (UHM). Since its inception, the BSA has successfully advocated for the return of the African American specialist position in Ethnic Studies, hosted the first Black graduation celebration in over twenty years, hosted Black History month events, and more. The goals of the student-led organization are to: increase awareness and understanding of African American issues, history and culture, promote unity among African American students, engage and connect with topics surrounding Blackness in Hawaiʻi, and promote and preserve Black studies at the University of Hawaiʻi at Mānoa",
+      "clubTime": "Contact Club",
+      "clubEmail": "breenajt@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Ethnic/Cultural"]
+    },
+    {
+      "name": "Be the Match",
+      "image": "https://assets.donordrive.com/bethematch/images/$event586$/logoImage.png",
+      "description": "Be The Match®, operated by the National Marrow Donor Program® (NMDP), is a nonprofit organization dedicated to helping every patient get the life-saving transplant they need. As trusted leaders in advancing treatments for those facing life-threatening blood cancers, we provide ground-breaking research, innovative technologies, patient support, and education that save lives. Through this club on campus, we will be able to spread awareness of our cause and hopefully find someone's match.",
+      "clubTime": "Contact Club",
+      "clubEmail": "sas@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Service"]
+    },
+    {
+      "name": "Best Buddies Chapter at UHM",
+      "image": "https://hisaac.org/wp-content/uploads/2020/04/admin-ajax-1-e1602007192687.png",
+      "description": "Best Buddies International is a nonprofit 501(c)(3) organization dedicated to establishing a global volunteer movement that creates opportunities for one-to-one friendships, integrated employment, leadership development, and inclusive living for individuals with intellectual and developmental disabilities (IDD). As a Best Buddies chapter, we are committed to providing activities and outings to create inclusive friendships between UHM college students and persons with disabilities.",
+      "clubTime": "Contact Club",
+      "clubEmail": "rdazzeo@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Service"]
+    },
+    {
+      "name": "Beta Alpha Psi - Delta Theta Chapter",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmfqSCkZHqwXksTNjm6_-vE-B_quiJRm4vE7U1wvym3f8XpM34ec8WzD0VVK5UMgK-Cug&usqp=CAU",
+      "description": "Beta Alpha Psi is the international honor organization for financial information students and professionals. The purpose of this organization shall be to:\n- Instill in its members a desire for self-improvement.\n- Foster high moral and ethical standards in its members.\n- Encourage and give recognition to scholastic and professional excellence.\n- Cultivate a sense of responsibility and services in its members.\n- Promote the collegiate study of accounting.\n- Provide opportunities for association among its members.",
+      "clubTime": "Contact Club",
+      "clubEmail": "jmjaf@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Honorary Society"]
+    },
+    {
+      "name": "Beta Beta Gamma",
+      "image": "https://eloncdn.blob.core.windows.net/eu3/sites/74/2022/10/Stacked-Clear.png",
+      "description": "To bring together a group of strong, caring women to create a sisterhood of leadership, community, and diversity. To give back to our community and raise a group of strong intelligent women",
+      "clubTime": "Contact Club",
+      "clubEmail": "changv21@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Fraternity/Sorority"]
+    },
+    {
+      "name": "Botanical Society of America Hawaii Chapter at Univeristy of Hawaii at Manoa",
+      "image": "https://www.hibotsoc.org/uploads/1/3/3/6/133637871/botsoc-logo-gray-temp.jpg",
+      "description": "The Botanical Society of America (“BSA”) Student Chapter at University of Hawaii at Mānoa (“Chapter”) shall be operated for scientific and educational purposes. Its mission is to promote botany, the field of basic science dealing with the study and inquiry into the form, function, development, diversity, reproduction, evolution, and uses of plants and their interactions within the biosphere. To accomplish this mission, the objectives of the Chapter are to: sustain and provide improved formal and informal education about plants; encourage basic plant research; provide expertise, direction, and position statements concerning plants and ecosystems; and foster communication within the professional botanical community, and between botanists and the rest of the local community through meetings, activities, and community outreach.",
+      "clubTime": "Contact Club",
+      "clubEmail": "nitz@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Academic/Professional"]
+    },
+    {
+      "name": "Business Executive Society of Tomorrow",
+      "image": "https://static1.squarespace.com/static/5d37c623ac033d0001fd45d5/t/5e0ad5c9192cf25f69125464/1577768396084/bestlogo.png?format=1500w",
+      "description": "The Business Executive Society of Tomorrow is a general business club at the University of Hawaii at Manoa’s Shidler College of Business. Founded by students in 1998, BEST has a proud history of maintaining and perpetuating excellence in its members. Through the years, we have developed a culture of diligence and dedication to personal and professional growth. Through a combination of tours, workshops, networking events, alumni events, community services, and socials, we strive to mold our members into well-rounded individuals. We pride ourselves in producing the business leaders of tomorrow, and we provide our members with ample opportunities to continually advance toward that goal.",
+      "clubTime": "Contact Club",
+      "clubEmail": "agcaball@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Academic/Professional"]
+    },
+    {
+      "name": "Capoeira Senzala Hawaii",
+      "image": "https://live.staticflickr.com/3259/2479330361_152377422b_w.jpg",
+      "description": "To expose students to Brazilian culture through many aspects of capoeira, such as martial art, fitness, music, rhythm, and samba. To build a healthy community around training capoeira and to contribute to this community by bringing guest teachers for workshops and events.",
+      "clubTime": "Contact Club",
+      "clubEmail": "andru78@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Ethnic/Cultural"]
+    },
+    {
+      "name": "Campus Chinese Christian Ministry",
+      "image": "https://www.afcinc.org/Portals/_default/Skins/NativeChurch/res/1/logo.png",
+      "description": "The purpose of the organization is to offer a space for Chinese students and scholars at the University of Hawaii to find support, companionship, and spiritual fulfillment. Our focus is not only on academic and professional excellence but also on understanding the deeper meaning of life through family, kinship, love, and faith.",
+      "clubTime": "Contact Club",
+      "clubEmail": "zhaos@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Religious/Spiritual"]
+    },
+    {
+      "name": "Chess Club at UH Manoa",
+      "image": "https://images.chesscomfiles.com/uploads/v1/group/58762.c2a006b0.160x160o.dbbbf18e9ff8.jpeg",
+      "description": "Facilitate a community where chess players can come together and play on campus.",
+      "clubTime": "Contact Club",
+      "clubEmail": "adpaul@hawaii.edu",
+      "owner": "admin@foo.com",
       "interests": ["Leisure/Recreational"]
     },
     {
-      "name": "Global Cuisine Club",
-      "image": "https://placekitten.com/300/201",
-      "description": "Dive into the world of flavors with our diverse culinary experiences from around the globe.",
-      "clubTime": "Friday, 6:30 PM - 8:30 PM",
-      "clubEmail": "cuisineclub@example.com",
+      "name": "Chi Alpha Hawaii",
+      "image": "https://static.wixstatic.com/media/383b97_44af6345f29944f389e7e2562f557b51~mv2.jpg/v1/fill/w_107,h_90,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Calvary_Podcast_Logo%20(1)%20-%20Copy.jpg",
+      "description": "WE DISCIPLE UNIVERSITY STUDENTS TO FULFILL THEIR PURPOSE IN GOD'S GLOBAL PLAN. Our mission is to reconcile students to Christ, equipping them through Spirit-Filled communities of prayer, worship, fellowship, discipleship, and mission to transform the university, the marketplace and the world.",
+      "clubTime": "Contact Club",
+      "clubEmail": "kagacir@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Religious/Spiritual"]
+    },
+    {
+      "name": "Chi Epsilon",
+      "image": "https://drive.tiny.cloud/1/kzlrgp5px49udpqwx6cekglhf3h1h9y8o18q1xahovquycdo/d2ce4068-2a43-4cd2-98a1-2237be172d13",
+      "description": "Chi Epsilon is the National Civil Engineering Honor Society. We are dedicated to maintaining and promoting the status of civil engineering as an ideal profession here on the UHM campus. To contribute to the improvement of the profession, Chi Epsilon fosters the development and exercise of sound traits of character and technical ability among civil engineers, and its members, by precept and example, toward an ever higher standard of professional service. We provide tutoring in lower-level CEE courses, commit ourselves frequently to community service events, offer career development opportunities for our members, and host social events.",
+      "clubTime": "Contact Club",
+      "clubEmail": "jonahmat@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Honorary Society"]
+    },
+    {
+      "name": "Church in Honolulu",
+      "image": "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/499000/499165-kawaiahao-church.jpg",
+      "description": "To bring together lovers of Christ and to blend as one body.",
+      "clubTime": "Contact Club",
+      "clubEmail": "weijie20@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Religious/Spiritual"]
+    },
+    {
+      "name": "Circle K International at the University of Hawaii at Manoa",
+      "image": "https://ckiuhm.weebly.com/uploads/8/6/7/3/86734930/published/cki.png?1629098653",
+      "description": "Developing university students into a global network of responsible citizens and leaders with a lifelong commitment to service.",
+      "clubTime": "Contact Club",
+      "clubEmail": "kjorimur@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Service"]
+    },
+    {
+      "name": "Medical Students for a Sustainable Future (MS4SF)",
+      "image": "https://ms4sforg.files.wordpress.com/2020/04/ms4sf-logo.png?w=1022&h=1024",
+      "description": "MS4SF is dedicated to uniting medical students invested in the health of our planet and patients and providing them with tools to make a difference at their institutions and in their communities through advocacy, curriculum reform, research, and climate-smart health care.",
+      "clubTime": "Contact Club",
+      "clubEmail": "sarahaag@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Academic/Professional"]
+    },
+    {
+      "name": "Medical Student Pride Alliance",
+      "image": "https://images.squarespace-cdn.com/content/v1/612bfd25a84af13ad0ada0f8/ab93d91e-d9d0-45f3-a7d0-ead7d9cf8aa4/Copy+of+MSPA+Logo+extended.png?format=1500w",
+      "description": "The purpose of the Medical Student Pride Alliance (MSPA) is to support sexual and gender minority (SGM) diversity efforts within JABSOM and the community by promoting education, safe spaces, awareness, and ongoing discussion of SGM health.",
+      "clubTime": "Contact Club",
+      "clubEmail": "mchai9@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Academic/Professional"]
+    },
+    {
+      "name": "Mortar Board National Honor Society Hui Po'okela Chapter at the University Of Hawaiʻi at Mānoa",
+      "image": "https://mortarboardmanoa.weebly.com/uploads/2/3/0/1/23010832/mortar-board.jpg",
+      "description": "Mortar Board Senior National Honor Society ​is one of the oldest organizations at the University of Hawai'i at Mānoa. It has long been recognized throughout the campus and O'ahu community for its continued partnership with diverse service projects with other student clubs and non-profit organizations all over the island. This is a national collegiate honor society for students in their senior year. Each chapter is typically comprised of only a handful of carefully selected applicants for the year - the Hui Po'okela Chapter usually does not exceed 25 members at a time. Potential members are chosen based on how they measure in accord with Mortar Board's key values: scholarship, leadership, and service. Those who excel in said values are then carefully examined through a series of interviews hosted by the chapter's current members. Once in Mortar Board, you will engage in various community service and fundraising activities. It is a great opportunity to give back to the community and form close friendships with your fellow Mortar Board members. This honor society is more than just prestige, but rather, an opportunity for every undergraduate senior to make a local impact in their campus and community before they graduate. Once in Mortar Board, every member will engage in various community service and fundraising activities. We not only help support the University of Hawaiʻi and the Oʻahu community but above all, we are making a global impact by building and growing the best leaders of tomorrow.",
+      "clubTime": "Contact Club",
+      "clubEmail": "gtessier@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Honorary Society"]
+    },
+    {
+      "name": "Molecular Cell Biology Club at UH Manoa",
+      "image": "https://manoa.hawaii.edu/sustainability/wp-content/uploads/2003/09/banner.jpg",
+      "description": "The Molecular Cell Biology Club at the University of Hawai’i at Mānoa serves to foster student interest in the field of cell biology, promote extra-curricular educational opportunities, and support student interactions with peers and professionals who have similar interests.",
+      "clubTime": "Contact Club",
+      "clubEmail": "janekwan@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Academic/Professional"]
+    },
+    {
+      "name": "Moʻui Maʻa Tonga at UH at Manoa",
+      "image": "https://manoa.hawaii.edu/speakers/wp-content/uploads/logo-1.png",
+      "description": "Purpose: Mo’ui Ma’a Tonga- meaning to live for Tonga in the Tongan language–perpetuates our Tongan values faith, community, family, history, heritage, reciprocity, and respect through collaborative events that provide a safe space, cultivate community, and regenerate relationships for Tongan students and all others that share our collective values at UHM.",
+      "clubTime": "Contact Club",
+      "clubEmail": "paletua@hawaii.edu",
       "owner": "admin@foo.com",
       "interests": ["Ethnic/Cultural"]
+    },
+    {
+      "name": "Moku o Loe Student Association",
+      "image": "https://manoa.hawaii.edu/speakers/wp-content/uploads/logo-1.png",
+      "description": "The mission of  Moku o Loʻe Student Association is to generate a strong student community that enhances professional development, interdisciplinary collaborations, and academic growth.",
+      "clubTime": "Contact Club",
+      "clubEmail": "zrago@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Academic/Professional"]
+    },
+    {
+      "name": "Midshipman Association",
+      "image": "https://www.history.navy.mil/content/history/museums/nnam/explore/exhibits/online-exhibits---collections/flying-midshipmen/flying-midshipmen-association/_jcr_content/body/media_asset/image.img.png/1597273919941.png",
+      "description": "The purpose of the organization shall be to provide a community for Midshipman of Naval Reserve Officer Training Corps at the University of Hawai’i at Manoa (UH NROTC), as well as a community of supporters to the Midshipman. The group shall be focused on providing a service foundation to the community as well as a way to fundraise to promote growth and opportunities for those in the organization.",
+      "clubTime": "Contact Club",
+      "clubEmail": "ctaylan@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Service"]
+    },
+    {
+      "name": "Muslim Student Association at UHM",
+      "image": "https://manoa.hawaii.edu/speakers/wp-content/uploads/logo-1.png",
+      "description": "The Muslim Student Association at UHM (MSA@UHM) is established to promote personal growth and life skill development and provide students with the tools to succeed in college, in the profession, and beyond. MSA@UHM is founded on Islamic foundations and strives to serve the UH community through academic, career, and skill development projects. It seeks to foster good community values while creating an inclusive space to support its students.",
+      "clubTime": "Contact Club",
+      "clubEmail": "marahman@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Religious/Spiritual"]
+    },
+    {
+      "name": "Multi'olelo",
+      "image": "https://manoa.hawaii.edu/speakers/wp-content/uploads/logo-1.png",
+      "description": "Multiʻōlelo is a transmedia multilingual platform aiming to curate language-related matters in multiple languages from multiple voices. Multiʻōlelo promotes multilingual, multicultural perspectives and encourages different forms of scholarship for public access and interaction.",
+      "clubTime": "Contact Club",
+      "clubEmail": "dholden9@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Ethnic/Cultural"]
+    },
+    {
+      "name": "Nā Hawaiʻi ʻImi Loa Hui Haumāna",
+      "image": "https://manoa.hawaii.edu/speakers/wp-content/uploads/logo-1.png",
+      "description": "Our mission is to service the Hawaiian community by strengthening the Native Hawaiian presence in the Library and Information Sciences profession, and by building the capacity of the Hawaiian community in Library and Information Sciences practices. Our hui is open to students pursuing a degree in Library & Information Sciences, Hawaiian Language, or Hawaiian Studies at the University of Hawaiʻi at Mānoa.",
+      "clubTime": "Contact Club",
+      "clubEmail": "anik7@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Ethnic/Cultural"]
+    },
+    {
+      "name": "National Residence Hall Honorary",
+      "image": "https://upload.wikimedia.org/wikipedia/en/a/a5/NRHH_Logo.png",
+      "description": "The purpose of the Kau I Ka Hano Chapter of the National Residence Hall Honorary shall be to provide recognition, professional development, and service opportunities to exemplary student leaders at the University at Hawaiʻi at Mānoa for the sake of building a greater sense of community among campus and beyond.",
+      "clubTime": "Contact Club",
+      "clubEmail": "mhmiura9@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Honorary Society"]
+    },
+    {
+      "name": "Natural Resources and Environmental Management Graduate Student Organization at University of Hawaiʻi at Mānoa",
+      "image": "https://manoa.hawaii.edu/speakers/wp-content/uploads/logo-1.png",
+      "description": "Serves graduate students within our department by providing opportunities to make social and professional connections, representing graduate student interests, and facilitating access to funding, the GSO hosts regular pau hana (happy hours) for graduate students, faculty, and staff.",
+      "clubTime": "Contact Club",
+      "clubEmail": "louiscbc@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Academic/Professional"]
+    },
+    {
+      "name": "Natural Sciences Student Ambassadors",
+      "image": "https://natsci.manoa.hawaii.edu/sasc/photos/natsci-logo.min.jpg",
+      "description": "Our organization strives to promote a welcoming and inclusive community for all students pursuing an undergraduate degree in the Natural Sciences. Members of our organization will act as mentors and leaders, aiding incoming students in their transition to our University and building camaraderie amongst continuing students.",
+      "clubTime": "Contact Club",
+      "clubEmail": "kaylalum@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Academic/Professional"]
+    },
+    {
+      "name": "Newman Club",
+      "image": "https://play-lh.googleusercontent.com/4A1x1nTU7wCJiEyBwTIGD-86xDbmWbZnnsKpDks6xr1hfHuVbPqSa3igJqJRThxyx2U",
+      "description": "Newman Holy Spirit Community, the Catholic Campus Center for the University of Hawai‘i, stimulates critical thinking and dialogue about issues that challenge Christian living and commits to a living faith that practices and promotes justice. We are a spirit-filled and welcoming community that proclaims and celebrates the Good News through liturgy, the sacraments, faith sharing, outreach, and social action. As the Roman Catholic Community of the University of Hawai‘i, we offer opportunities for life-long faith development to all who choose to join us",
+      "clubTime": "Contact Club",
+      "clubEmail": "montanes@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Religious/Spiritual"]
+    },
+    {
+      "name": "NSSLHA - Hui Pua Naleo",
+      "image": "https://manoa.hawaii.edu/speakers/wp-content/uploads/logo-1.png",
+      "description": "The purpose of the Chapter shall be to aid students at University of Hawaii by providing support to: ● Encourage professional interest among college and university students in the study of communication sciences and disorders ● Provide continuity to the dissemination of professional information ● Provide a vehicle for student representation in matters of professional concern",
+      "clubTime": "Contact Club",
+      "clubEmail": "dbourque@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Academic/Professional"]
+    },
+    {
+      "name": "Transcendental Meditation Club",
+      "image": "https://www.tm.org/images_local_responsive/logo.png",
+      "description": "The Transcendental Meditation Club offers meditation & Yoga classes for students, faculty & staff at UH Manoa. The TM Club offers stress management techniques to develop creativity, improve academic performance and greater enjoyment of life. Activities include group meditations, yoga hours and knowledge meetings.",
+      "clubTime": "Contact Club",
+      "clubEmail": "moroney@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Leisure/Recreational"]
+    },
+    {
+      "name": "Travel Industry Management Student Association (TIMSA)",
+      "image": "https://logoimagesv2.id-visitors.com/a/4/6/8/6/4/a4686489731746e59c050d1b8d886742.png",
+      "description": "Vision\nTo foster the future leaders of Hawaii’s travel industry.\n\nMission\nEncourage professionalism, teamwork, and service to build positive relationships in the TIM School, community, and the industry.",
+      "clubTime": "Contact Club",
+      "clubEmail": "mellorin@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Academic/Professional"]
+    },
+    {
+      "name": "Trial By Fire Academy",
+      "image": "https://manoa.hawaii.edu/speakers/wp-content/uploads/logo-1.png",
+      "description": "Trial by Fire Academy facilitates a curated space for safe discovery and dedicated training space of the flow and fire arts. It aims to nurture a culture of community through the fusion of movement, performance arts and music.",
+      "clubTime": "Contact Club",
+      "clubEmail": "mgabr@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Leisure/Recreational"]
+    },
+    {
+      "name": "Ultrasound Interest Group (USIG)",
+      "image": "https://activities.osu.edu/posts/studentorgs/logos/official-logo-zoom-in-640x480.png",
+      "description": "The purposes of USIG are:\n1. To educate students regarding the application of ultrasound in patient care\n2. To familiarize students in basic point-of-care ultrasound procedures including but not limited to: bedside focused echocardiography, volume status assessment, abdominal ultrasound, musculoskeletal ultrasound, ocular ultrasound, pulmonary ultrasound.",
+      "clubTime": "Contact Club",
+      "clubEmail": "erinjyo@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Academic/Professional"]
+    },
+    {
+      "name": "UNA-USA at UH Manoa",
+      "image": "https://pbs.twimg.com/profile_images/1004184341709111296/ApiGy0_3_200x200.jpg",
+      "description": "We are dedicated to educating, inspiring, and mobilizing Americans to support the principles and vital work of the United Nations and its agencies. Our nationwide network is committed to strengthening the United Nations system, promoting constructive United States leadership in that system, and achieving the goals set forth in the UN Charter. UNA-USA is a program of the United Nations Foundation. UNA-USA and its partner organization, the Better World Campaign, comprise the largest network of UN advocates in the world. As a university chapter we are dedicated to reaching students at UH Manoa and furthering their involvement with the United Nations whether it be through participating in the advancement of United Nations initiatives or connecting them career wise to individuals within the United Nations.",
+      "clubTime": "Contact Club",
+      "clubEmail": "elmagl@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Academic/Professional"]
+    },
+    {
+      "name": "Wellness Warriors",
+      "image": "https://manoa.hawaii.edu/speakers/wp-content/uploads/logo-1.png",
+      "description": "Wellness Warriors was founded to promote the Blue Zones project ideals which would include eating healthy, physical and mental well-being, and a sense of belonging. UHM students will learn more about leading a healthy lifestyle through activities such as sunset yoga sessions, wellness workshops, and community volunteering and clean ups. Wellness Warriors will help guide UHM students in learning how to incorporate and practice the 9 Longevity Principles throughout their lives.",
+      "clubTime": "Contact Club",
+      "clubEmail": "icleofe@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Academic/Professional"]
+    },
+    {
+      "name": "Whining & Dining Club",
+      "image": "https://manoa.hawaii.edu/speakers/wp-content/uploads/logo-1.png",
+      "description": "From students of different majors together, we will share meals and socialize in a relaxed, friendly atmosphere. Through the shared experience of trying new foods, members can break down barriers between majors and build relationships with students they may not have otherwise interacted with. Each meeting, the club will select a theme for the meal, and members are encouraged to bring dishes that represent their cultural background or personal tastes. The Club aims to foster a sense of community on campus and create a space where students can expand their culinary horizons and connect with others.",
+      "clubTime": "Contact Club",
+      "clubEmail": "jennyeb@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Leisure/Recreational"]
+    },
+    {
+      "name": "World Can't Wait Hawai’i",
+      "image": "https://manoa.hawaii.edu/speakers/wp-content/uploads/logo-1.png",
+      "description": "World Can't Wait Hawai’i exposes the crimes of the U.S. government, regardless of which political party holds power. We stand against war on the world and put humanity and the planet first. We oppose war, militarism and fascism and defend the rights of women, LGBTQ people, immigrants, and other oppressed peoples and encourage students and faculty to become involved in the struggle for a more peaceful and just world.",
+      "clubTime": "Contact Club",
+      "clubEmail": "Mcrb@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Political"]
+    },
+    {
+      "name": "Women in Surgery Interest Group",
+      "image": "https://media.licdn.com/dms/image/C560BAQHAKF9BguDMgQ/company-logo_200_200/0/1605517947755?e=2147483647&v=beta&t=-6Psp6PDkodRDsto6jWtvXIuoPk0jDwNlkPwVM9t4ig",
+      "description": "The purpose of the Women in Surgery Interest group is to support women entering the male-dominated field of surgery by promoting education, networking events, and ongoing discussion of how to increase representation within the field.",
+      "clubTime": "Contact Club",
+      "clubEmail": "saskiajl@hawaii.edu",
+      "owner": "admin@foo.com",
+      "interests": ["Academic/Professional"]
     }
   ]
 }
+
