@@ -17,8 +17,6 @@ const Profile = ({ profile }) => (
       <Card.Text>
         <ul id="intrests-list">{profile.interests.map((interest, index) => <li key={index}>{interest}</li>)}</ul>
       </Card.Text>
-      <br />
-      <Link to={`/profile/edit/${profile._id}`}>Edit</Link>
     </Card.Body>
   </Card>
 );

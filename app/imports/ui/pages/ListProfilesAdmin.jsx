@@ -32,7 +32,7 @@ const ListProfilesAdmin = () => {
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
-            <h2>List Profiles (Admin)</h2>
+            <h2>Manage Profiles (Admin)</h2>
           </Col>
           <Row>
             {profiles.map((profile, index) => <Col key={index}><ProfileAdmin profile={profile} /></Col>)}
