@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import swal from 'sweetalert';
+import { Meteor } from 'meteor/meteor';
 import { Link, Navigate } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
 import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
@@ -7,8 +9,6 @@ import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { addProfileMethod } from '../../startup/both/Methods';
-import { Meteor } from 'meteor/meteor';
-import swal from 'sweetalert';
 
 /**
  * SignUp component is similar to signin component, but we create a new user instead.

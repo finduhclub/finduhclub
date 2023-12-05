@@ -7,8 +7,8 @@ import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
-import { addProfileMethod } from '../../startup/both/Methods';
 import swal from 'sweetalert';
+import { addProfileMethod } from '../../startup/both/Methods';
 
 /**
  * SignUp component is similar to signin component, but we create a new user instead.
