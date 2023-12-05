@@ -14,6 +14,7 @@ import { Clubs } from '../../api/clubs/Clubs';
 import { ProfilesClubs } from '../../api/join/ProfilesClubs';
 import { ProfilesInterests } from '../../api/join/ProfilesInterests';
 import { updateProfileMethod } from '../../startup/both/Methods';
+import { Link } from 'react-router-dom';
 
 /* Create a schema to specify the structure of the data to appear in the form. */
 const makeSchema = (allInterests, allClubs) => new SimpleSchema({
@@ -97,6 +98,7 @@ const EditProfile = () => {
                 <Col xs={6}><SelectField name="interests" showInlineError multiple /></Col>
                 <Col xs={6}><SelectField name="clubs" showInlineError multiple /></Col>
               </Row>
+              <Link to="/profile/edit/changepassword">Change password</Link>
               <SubmitField value="Update" />
             </Card.Body>
           </Card>
