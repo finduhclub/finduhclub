@@ -46,7 +46,7 @@ const App = () => {
           <Route path="/profile" element={<ProtectedRoute><ViewProfile /></ProtectedRoute>} />
           <Route path="/interests" element={<ProtectedRoute><ViewInterests /></ProtectedRoute>} />
           <Route path="/profile/edit/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
-          <Route path="/profile/edit/changepassword" element={<ProtectedRoute><ChangePassword /></ProtectedRoute>} />
+          <Route path="/profile/edit/:_id/changepassword" element={<ProtectedRoute><ChangePassword /></ProtectedRoute>} />
           <Route path="/add" element={<AdminProtectedRoute ready={ready}><AddClubs /></AdminProtectedRoute>} />
           <Route path="/clubAdmin/edit/:_id" element={<AdminProtectedRoute ready={ready}><EditClubInfo /></AdminProtectedRoute>} />
           <Route path="/profileAdmin" element={<AdminProtectedRoute ready={ready}><ListProfilesAdmin /></AdminProtectedRoute>} />
