@@ -64,7 +64,7 @@ const EditProfile = () => {
   const model = _.extend({}, profile, { interests, clubs });
   // console.log(`Model: ${JSON.stringify(model)}`);
   return ready ? (
-    <Container className="justify-content-center">
+    <Container id="edit-profile" className="justify-content-center">
       <Col>
         <Col className="justify-content-center text-center"><h2>Your Profile</h2></Col>
         <AutoForm model={model} schema={bridge} onSubmit={data => submit(data)}>

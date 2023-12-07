@@ -70,6 +70,10 @@ class NavBar {
     await testController.click('#manage-profiles-admin-nav');
   }
 
+  async gotoEditProfilePage(testController) {
+    await testController.click('#edit-profile-nav');
+  }
+
   async gotoAddClubsPage(testController) {
     await testController.click('#add-clubs-nav');
   }
