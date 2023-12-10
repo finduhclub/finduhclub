@@ -26,9 +26,13 @@ class AddClubsPage {
     await testController.typeText('#add-clubs-time-field', clubTime);
     await testController.typeText('#add-clubs-email-field', clubEmail);
     // Select 2 club types
-    const InterestSelector = Selector('#add-clubs-interests-field div.form-check input');
-    await testController.click(InterestSelector.nth(0));
-    await testController.click(InterestSelector.nth(1));
+    const InterestSelector = Selector('label[for="add-clubs-interests-field"]');
+    await testController
+      .click(InterestSelector)
+      .click(Selector('label').withText('Fraternity/Sorority'));
+    await testController
+      .click(InterestSelector)
+      .click(Selector('label').withText('Leisure/Recreational'));
 
     await testController.click('#add-clubs-submit-btn input.btn.btn-primary');
     await testController.click(Selector('.swal-button--confirm'));
