@@ -28,7 +28,7 @@ const ListProfilesAdmin = () => {
   // Need to ensure that getProfileData doesn't throw an error on line 18.
   const profiles = owners.map(owner => getProfileData(owner));
   return ready ? (
-    <Container className="py-3">
+    <Container id="list-profiles-admin" className="py-3">
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">

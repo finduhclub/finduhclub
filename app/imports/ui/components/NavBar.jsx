@@ -20,11 +20,11 @@ const NavBar = () => {
     <Navbar bg="light" expand="lg">
       <Container>
         {currentUser ? (
-          <Navbar.Brand as={NavLink} to="/home" className="d-flex align-items-center">
+          <Navbar.Brand id="brand-to-home" as={NavLink} to="/home" className="d-flex align-items-center">
             <img src="/images/find-uh-clubs-logo.png" alt="uh-logo" height={50} />
           </Navbar.Brand>
         ) : (
-          <Navbar.Brand as={NavLink} to="/" className="d-flex align-items-center">
+          <Navbar.Brand id="brand-to-landing" as={NavLink} to="/" className="d-flex align-items-center">
             <img src="/images/find-uh-clubs-logo.png" alt="uh-logo" height={50} />
           </Navbar.Brand>
         )}
@@ -38,7 +38,7 @@ const NavBar = () => {
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? ([
               <Nav.Link id="add-clubs-nav" as={NavLink} to="/add" key="add">Add Clubs</Nav.Link>,
-              <Nav.Link id="admin-nav" as={NavLink} to="/profileAdmin" key="admin">Manage Profiles</Nav.Link>,
+              <Nav.Link id="manage-profiles-admin-nav" as={NavLink} to="/profileAdmin" key="admin">Manage Profiles</Nav.Link>,
               <Nav.Link id="manage-clubs-admin-nav" as={NavLink} to="/clubAdmin" key="clubAdmin">Manage Clubs</Nav.Link>,
             ]) : ''}
           </Nav>

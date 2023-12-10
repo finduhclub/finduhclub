@@ -53,6 +53,16 @@ class NavBar {
     await testController.click('#login-dropdown-sign-up');
   }
 
+  /** click logo to go to landing if logged out */
+  async gotoLandingPage(testController) {
+    await this.ensureLogout(testController);
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click('#brand-to-landing');
+  }
+
   /** Pull down login menu, go to sign up page. */
   async gotoListClubsPage(testController) {
     await testController.click('#list-clubs-nav');
@@ -64,6 +74,14 @@ class NavBar {
 
   async gotoManageClubsPage(testController) {
     await testController.click('#manage-clubs-admin-nav');
+  }
+
+  async gotoManageProfilesPage(testController) {
+    await testController.click('#manage-profiles-admin-nav');
+  }
+
+  async gotoEditProfilePage(testController) {
+    await testController.click('#edit-profile-nav');
   }
 
   async gotoAddClubsPage(testController) {

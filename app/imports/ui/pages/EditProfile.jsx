@@ -7,6 +7,7 @@ import SimpleSchema from 'simpl-schema';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 import { useTracker } from 'meteor/react-meteor-data';
+import { Link } from 'react-router-dom';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Interests } from '../../api/interests/Interests';
 import { Profiles } from '../../api/profiles/Profiles';
@@ -14,7 +15,6 @@ import { Clubs } from '../../api/clubs/Clubs';
 import { ProfilesClubs } from '../../api/join/ProfilesClubs';
 import { ProfilesInterests } from '../../api/join/ProfilesInterests';
 import { updateProfileMethod } from '../../startup/both/Methods';
-import { Link } from 'react-router-dom';
 
 /* Create a schema to specify the structure of the data to appear in the form. */
 const makeSchema = (allInterests, allClubs) => new SimpleSchema({
@@ -68,18 +68,18 @@ const EditProfile = () => {
   const model = _.extend({}, profile, { interests, clubs });
   // console.log(`Model: ${JSON.stringify(model)}`);
   return ready ? (
-    <Container className="justify-content-center">
+    <Container id="edit-profile" className="justify-content-center">
       <Col>
         <Col className="justify-content-center text-center"><h2>Your Profile</h2></Col>
         <AutoForm model={model} schema={bridge} onSubmit={data => submit(data)}>
           <Card>
             <Card.Body>
               <Row className="justify-content-evenly">
-                <Col xs={6}><TextField name="name" showInlineError placeholder="Display Name" /></Col>
-                <Col xs={6}><TextField name="owner" showInlineError placeholder="Email" disabled /></Col>
+                <Col xs={6}><TextField id="edit-profile-name-field" name="name" showInlineError placeholder="Display Name" /></Col>
+                <Col xs={6}><TextField id="edit-profile-owner-field" name="owner" showInlineError placeholder="Email" disabled /></Col>
               </Row>
               <Row>
-                <Col xs={6}><TextField name="image" showInlineError placeholder="URL to image" /></Col>
+                <Col xs={6}><TextField id="edit-profile-image-field" name="image" showInlineError placeholder="URL to image" /></Col>
                 <Col xs={6}>Default Image Options:
                   <Row>
                     <Col className="text-center small">
@@ -98,11 +98,11 @@ const EditProfile = () => {
                 </Col>
               </Row>
               <Row>
-                <Col xs={6}><SelectField name="interests" showInlineError multiple /></Col>
-                <Col xs={6}><SelectField name="clubs" showInlineError multiple /></Col>
+                <Col xs={6}><SelectField id="edit-profile-interests-field" name="interests" showInlineError multiple /></Col>
+                <Col xs={6}><SelectField id="edit-profile-clubs-field" name="clubs" showInlineError multiple /></Col>
               </Row>
-              <Link to={`/profile/edit/${userId}/changepassword`}>Change your password</Link>
-              <SubmitField value="Update" />
+              <Link id="change-password-link" to={`/profile/edit/${userId}/changepassword`}>Change your password</Link>
+              <SubmitField id="edit-profile-update" value="Update" />
             </Card.Body>
           </Card>
         </AutoForm>
