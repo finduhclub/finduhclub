@@ -71,11 +71,11 @@ const EditProfile = () => {
           <Card>
             <Card.Body>
               <Row className="justify-content-evenly">
-                <Col xs={6}><TextField name="name" showInlineError placeholder="Display Name" /></Col>
-                <Col xs={6}><TextField name="owner" showInlineError placeholder="Email" disabled /></Col>
+                <Col xs={6}><TextField id="edit-profile-name-field" name="name" showInlineError placeholder="Display Name" /></Col>
+                <Col xs={6}><TextField id="edit-profile-owner-field" name="owner" showInlineError placeholder="Email" disabled /></Col>
               </Row>
               <Row>
-                <Col xs={6}><TextField name="image" showInlineError placeholder="URL to image" /></Col>
+                <Col xs={6}><TextField id="edit-profile-image-field" name="image" showInlineError placeholder="URL to image" /></Col>
                 <Col xs={6}>Default Image Options:
                   <Row>
                     <Col className="text-center small">
@@ -94,10 +94,10 @@ const EditProfile = () => {
                 </Col>
               </Row>
               <Row>
-                <Col xs={6}><SelectField name="interests" showInlineError multiple /></Col>
-                <Col xs={6}><SelectField name="clubs" showInlineError multiple /></Col>
+                <Col xs={6}><SelectField id="edit-profile-interests-field" name="interests" showInlineError multiple /></Col>
+                <Col xs={6}><SelectField id="edit-profile-clubs-field" name="clubs" showInlineError multiple /></Col>
               </Row>
-              <SubmitField value="Update" />
+              <SubmitField id="edit-profile-update" value="Update" />
             </Card.Body>
           </Card>
         </AutoForm>

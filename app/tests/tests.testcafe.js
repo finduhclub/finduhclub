@@ -67,6 +67,7 @@ test('Test that edit profile page works', async (testController) => {
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoEditProfilePage(testController);
   await editProfilePage.isDisplayed(testController);
+  await editProfilePage.editProfile(testController);
 });
 
 /** test('Test that add clubs admin page works', async (testController) => {

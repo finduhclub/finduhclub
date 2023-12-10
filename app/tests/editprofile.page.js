@@ -11,28 +11,35 @@ class EditProfilePage {
     await testController.expect(this.pageSelector.exists).ok();
   }
 
-  // /** Adds a club to the database. */
-  // async editProfile(testController) {
-  //   const name = 'Cool Club';
-  //   const image = 'https://www.realmenrealstyle.com/wp-content/uploads/2023/06/Vanity-Glasses.jpg';
-  //   const description = 'A cool club for very cool people.';
-  //   const clubTime = 'Mondays: 3:00PM to 4:30PM';
-  //   const clubEmail = 'coolkids808@example.com';
-  //   await this.isDisplayed(testController);
-  //   // Define new club
-  //   await testController.typeText('#add-clubs-name-field', name);
-  //   await testController.typeText('#add-clubs-image-field', image);
-  //   await testController.typeText('#add-clubs-desc-field', description);
-  //   await testController.typeText('#add-clubs-time-field', clubTime);
-  //   await testController.typeText('#add-clubs-email-field', clubEmail);
-  //   // Select 2 club types
-  //   const InterestSelector = Selector('#add-clubs-interests-field div.form-check input');
-  //   await testController.click(InterestSelector.nth(0));
-  //   await testController.click(InterestSelector.nth(1));
-  //
-  //   await testController.click('#add-clubs-submit-btn input.btn.btn-primary');
-  //   await testController.click(Selector('.swal-button--confirm'));
-  // }
+  /** Edits the profile of the user. */
+  async editProfile(testController) {
+    const name = 'Cool Dude';
+    const image = 'https://www.realmenrealstyle.com/wp-content/uploads/2023/06/Vanity-Glasses.jpg';
+
+    await this.isDisplayed(testController);
+    // Add new information
+    await testController.typeText('#edit-profile-name-field', name, { replace: true });
+    await testController.typeText('#edit-profile-image-field', image, { replace: true });
+    // Select interests
+    const InterestSelector = Selector('#edit-profile-interests-field');
+    await testController.click(InterestSelector);
+    const interestOption = InterestSelector.find('option');
+    await testController
+      .click(InterestSelector)
+      .click(interestOption.withText('Fraternity/Sorority'))
+      .expect(InterestSelector.value).eql('Fraternity/Sorority');
+    // Select club
+    const ClubSelector = Selector('#edit-profile-clubs-field');
+    await testController.click(ClubSelector);
+    const ClubOption = ClubSelector.find('option');
+    await testController
+      .click(ClubSelector)
+      .click(ClubOption.withText('Adventure Seekers Society'))
+      .expect(ClubSelector.value).eql('Adventure Seekers Society');
+
+    // Submit Info
+    await testController.click('#edit-profile-update input.btn.btn-primary');
+  }
 }
 
 export const editProfilePage = new EditProfilePage();
