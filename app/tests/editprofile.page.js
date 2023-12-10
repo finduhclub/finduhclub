@@ -34,8 +34,8 @@ class EditProfilePage {
     const ClubOption = ClubSelector.find('option');
     await testController
       .click(ClubSelector)
-      .click(ClubOption.withText('Adventure Seekers Society'))
-      .expect(ClubSelector.value).eql('Adventure Seekers Society');
+      .click(ClubOption.withText('Accounting Club'))
+      .expect(ClubSelector.value).eql('Accounting Club');
 
     // Submit Info
     await testController.click('#edit-profile-update input.btn.btn-primary');
