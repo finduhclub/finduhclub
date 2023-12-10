@@ -9,16 +9,16 @@ const ClubAdmin = ({ club }) => (
     <Card.Header>
       <Card.Img src={club.image} width={75} />
       <Card.Title>{club.name}</Card.Title>
-      <Card.Subtitle>{club.description}</Card.Subtitle>
       <br />
       <Card.Subtitle>Email: {club.clubEmail}</Card.Subtitle>
-      <br />
       <Card.Subtitle>Club Time: {club.clubTime}</Card.Subtitle>
+      <br />
+      <Card.Subtitle>
+        <ul>{club.interests.map(interest => <li>{interest}</li>)}</ul>
+      </Card.Subtitle>
     </Card.Header>
     <Card.Body>
-      <Card.Text>
-        <ul>{club.interests.map(interest => <li>{interest}</li>)}</ul>
-      </Card.Text>
+      <Card.Text>{club.description}</Card.Text>
       <br />
       <Link to={`/clubAdmin/edit/${club._id}`}>Edit</Link>
     </Card.Body>

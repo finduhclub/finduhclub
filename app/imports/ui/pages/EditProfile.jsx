@@ -7,6 +7,7 @@ import SimpleSchema from 'simpl-schema';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 import { useTracker } from 'meteor/react-meteor-data';
+import { Link } from 'react-router-dom';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Interests } from '../../api/interests/Interests';
 import { Profiles } from '../../api/profiles/Profiles';
@@ -28,6 +29,9 @@ const makeSchema = (allInterests, allClubs) => new SimpleSchema({
 
 /* Renders the EditProfile Page: what appears after the user logs in. */
 const EditProfile = () => {
+  const { userId } = useTracker(() => ({
+    userId: Meteor.userId() ? Meteor.userId() : '',
+  }));
 
   /* On submit, insert the data. */
   const submit = (data) => {
@@ -97,6 +101,7 @@ const EditProfile = () => {
                 <Col xs={6}><SelectField id="edit-profile-interests-field" name="interests" showInlineError multiple /></Col>
                 <Col xs={6}><SelectField id="edit-profile-clubs-field" name="clubs" showInlineError multiple /></Col>
               </Row>
+              <Link to={`/profile/edit/${userId}/changepassword`}>Change your password</Link>
               <SubmitField id="edit-profile-update" value="Update" />
             </Card.Body>
           </Card>
