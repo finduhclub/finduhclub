@@ -53,6 +53,16 @@ class NavBar {
     await testController.click('#login-dropdown-sign-up');
   }
 
+  /** click logo to go to landing if logged out */
+  async gotoLandingPage(testController) {
+    await this.ensureLogout(testController);
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click('#brand-to-landing');
+  }
+
   /** Pull down login menu, go to sign up page. */
   async gotoListClubsPage(testController) {
     await testController.click('#list-clubs-nav');

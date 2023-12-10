@@ -101,7 +101,7 @@ const EditProfile = () => {
                 <Col xs={6}><SelectField id="edit-profile-interests-field" name="interests" showInlineError multiple /></Col>
                 <Col xs={6}><SelectField id="edit-profile-clubs-field" name="clubs" showInlineError multiple /></Col>
               </Row>
-              <Link to={`/profile/edit/${userId}/changepassword`}>Change your password</Link>
+              <Link id="change-password-link" to={`/profile/edit/${userId}/changepassword`}>Change your password</Link>
               <SubmitField id="edit-profile-update" value="Update" />
             </Card.Body>
           </Card>

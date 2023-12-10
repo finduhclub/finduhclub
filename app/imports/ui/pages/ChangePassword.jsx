@@ -39,7 +39,7 @@ const ChangePassword = ({ location }) => {
     return <Navigate to={from} />;
   }
   return (
-    <Container className="py-3">
+    <Container id="change-password" className="py-3">
       <Row className="justify-content-center">
         <Col xs={10}>
           <Col className="text-center"><h2>Change Password</h2></Col>
@@ -47,10 +47,10 @@ const ChangePassword = ({ location }) => {
             <Card>
               <Card.Header>Change password</Card.Header>
               <Card.Body>
-                <TextField name="oldPassword" placeholder="Old Password" type="password" />
-                <TextField name="newPassword" placeholder="New Password" type="password" />
+                <TextField id="old-password-field" name="oldPassword" placeholder="Old Password" type="password" />
+                <TextField id="new-password-field" name="newPassword" placeholder="New Password" type="password" />
                 <ErrorsField />
-                <SubmitField value="Submit" />
+                <SubmitField id="change-password-submit" value="Submit" />
               </Card.Body>
             </Card>
           </AutoForm>

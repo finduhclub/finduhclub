@@ -20,11 +20,11 @@ const NavBar = () => {
     <Navbar bg="light" expand="lg">
       <Container>
         {currentUser ? (
-          <Navbar.Brand as={NavLink} to="/home" className="d-flex align-items-center">
+          <Navbar.Brand id="brand-to-home" as={NavLink} to="/home" className="d-flex align-items-center">
             <img src="/images/find-uh-clubs-logo.png" alt="uh-logo" height={50} />
           </Navbar.Brand>
         ) : (
-          <Navbar.Brand as={NavLink} to="/" className="d-flex align-items-center">
+          <Navbar.Brand id="brand-to-landing" as={NavLink} to="/" className="d-flex align-items-center">
             <img src="/images/find-uh-clubs-logo.png" alt="uh-logo" height={50} />
           </Navbar.Brand>
         )}

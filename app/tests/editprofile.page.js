@@ -40,6 +40,10 @@ class EditProfilePage {
     // Submit Info
     await testController.click('#edit-profile-update input.btn.btn-primary');
   }
+
+  async gotoChangePasswordPage(testController) {
+    await testController.click('#change-password-link');
+  }
 }
 
 export const editProfilePage = new EditProfilePage();
