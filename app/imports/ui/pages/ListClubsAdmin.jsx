@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, FormSelect, Modal, Row } from 'react-bootstrap';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Clubs } from '../../api/clubs/Clubs';
 import ClubAdmin from '../components/ClubAdmin';
+import Club from '../components/Club';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItemAdmin> to render each row. */
 const ListClubsAdmin = () => {
-  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
+  const [selectedFilter, setSelectedFilter] = useState('');
   const { clubs, ready } = useTracker(() => {
     // Get access to Stuff documents.
     const subscription = Meteor.subscribe(Clubs.adminPublicationName);
@@ -17,16 +18,24 @@ const ListClubsAdmin = () => {
     const rdy = subscription.ready();
     const rdy2 = subscription2.ready();
     // Get the Stuff documents
-    const clubsItems = Clubs.collection.find().fetch();
+    let data = [];
+    if (selectedFilter) {
+      data = Clubs.collection.find({ interests: selectedFilter }).fetch();
+    } else {
+      data = Clubs.collection.find({}).fetch();
+    }
     return {
-      clubs: clubsItems,
+      clubs: data,
       ready: rdy, rdy2,
     };
-  }, []);
+  }, [selectedFilter]);
 
-  function chunkArray(arr, size) {
-    return Array.from({ length: Math.ceil(arr.length / size) }, (v, i) => arr.slice(i * size, i * size + size));
-  }
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const handleFilterChange = (event) => {
+    setSelectedFilter(event.target.value);
+  };
 
   return (ready ? (
     <Container id="list-clubs-admin" className="py-3">
@@ -35,16 +44,45 @@ const ListClubsAdmin = () => {
           <Col className="text-center">
             <h2>Manage Clubs (Admin)</h2>
           </Col>
-          {chunkArray(clubs, 3).map((row, rowIndex) => (
-            <Row key={rowIndex} className="pb-4">
-              {row.map((club, colIndex) => (
-                <Col key={colIndex} xs={4}>
-                  <ClubAdmin club={club} />
-                </Col>
-              ))}
-            </Row>
-          ))}
+          <Col md={1}>
+            <Button variant="primary" onClick={handleShow}>
+              Filter
+            </Button>
+            <Modal show={show} onHide={handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>Select Filters</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <FormSelect id="filter-interests" onChange={handleFilterChange} value={selectedFilter || ''}>
+                  <option value="">None</option>
+                  <option value="Academic/Professional">Academic/Professional</option>
+                  <option value="Ethnic/Cultural">Ethnic/Cultural</option>
+                  <option value="Fraternity/Sorority">Fraternity/Sorority</option>
+                  <option value="Honorary Society">Honorary Society</option>
+                  <option value="Leisure/Recreational">Leisure/Recreational</option>
+                  <option value="Political">Political</option>
+                  <option value="Religious/Spiritual">Religious/Spiritual</option>
+                  <option value="Service">Service</option>
+                  <option value="Sports/Leisure">Sports/Leisure</option>
+                  <option value="Student Affairs">Student Affairs</option>
+                  <option value="Other">Other</option>
+                </FormSelect>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </Col>
         </Col>
+      </Row>
+      <Row xs={1} md={2} lg={3} className="g-4 flex-wrap mx-0 my-5">
+        {clubs.map((club, index) => (
+          <Col key={index} className="align-items-stretch">
+            <Club key={index} club={club} />
+          </Col>
+        ))}
       </Row>
     </Container>
   ) : <LoadingSpinner />);
