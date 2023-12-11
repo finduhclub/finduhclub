@@ -5,7 +5,6 @@ import { Button, Col, Container, FormSelect, Modal, Row } from 'react-bootstrap'
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Clubs } from '../../api/clubs/Clubs';
 import ClubAdmin from '../components/ClubAdmin';
-import Club from '../components/Club';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItemAdmin> to render each row. */
 const ListClubsAdmin = () => {
@@ -80,7 +79,7 @@ const ListClubsAdmin = () => {
       <Row xs={1} md={2} lg={3} className="g-4 flex-wrap mx-0 my-5">
         {clubs.map((club, index) => (
           <Col key={index} className="align-items-stretch">
-            <Club key={index} club={club} />
+            <ClubAdmin key={index} club={club} />
           </Col>
         ))}
       </Row>
