@@ -32,14 +32,14 @@ const SignUp = ({ location }) => {
       } else {
         setError('');
         setRedirectToRef(true);
-      }
-    });
-    console.log(`Defining profile ${email}`);
-    Meteor.call(addProfileMethod, { owner: email }, (err) => {
-      if (err) {
-        swal('Error', err.message, 'error');
-      } else {
-        swal('Success', 'Profile created successfully', 'success');
+        console.log(`Defining profile ${email}`);
+        Meteor.call(addProfileMethod, { owner: email }, (errProf) => {
+          if (errProf) {
+            swal('Error', errProf.message, 'error');
+          } else {
+            swal('Success', 'Profile created successfully', 'success');
+          }
+        });
       }
     });
   };
