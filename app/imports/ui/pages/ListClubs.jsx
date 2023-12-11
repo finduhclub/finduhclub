@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row, Button, Modal, Form } from 'react-bootstrap';
+import { Col, Container, Row, Button, Modal, FormSelect } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Clubs } from '../../api/clubs/Clubs';
@@ -8,139 +8,80 @@ import Club from '../components/Club';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const ListClubs = () => {
-  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
+  const [selectedFilter, setSelectedFilter] = useState('');
   const { ready, clubs } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
     const subscription = Meteor.subscribe(Clubs.adminPublicationName);
     const subscription2 = Meteor.subscribe(Clubs.userPublicationName);
+    let data = [];
+    if (selectedFilter) {
+      data = Clubs.collection.find({ interests: selectedFilter }).fetch();
+    } else {
+      data = Clubs.collection.find({}).fetch();
+    }
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     const rdy2 = subscription2.ready();
     // Get the Stuff documents
-    const clubItems = Clubs.collection.find().fetch();
     return {
-      clubs: clubItems,
+      clubs: data,
       ready: rdy, rdy2,
     };
-  }, []);
+  }, [selectedFilter]);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  function chunkArray(arr, size) {
-    return Array.from({ length: Math.ceil(arr.length / size) }, (v, i) => arr.slice(i * size, i * size + size));
-  }
-
+  const handleFilterChange = (event) => {
+    setSelectedFilter(event.target.value);
+  };
   return (ready ? (
     <Container id="list-clubs" fluid className="py-3">
-      <Row className="justify-content-center">
-        <Col>
-          <Col className="text-center">
-            <h2>List Clubs</h2>
-          </Col>
-          {chunkArray(clubs, 3).map((row, rowIndex) => (
-            <Row key={rowIndex} className="pb-4">
-              {row.map((club, colIndex) => (
-                <Col key={colIndex} xs={4}>
-                  <Club club={club} />
-                </Col>
-              ))}
-            </Row>
-          ))}
-        </Col>
-      </Row>
-      <hr />
       <Row className="justify-content-end">
-        <Col md={11}>
-          <Button variant="outline-secondary" className="px-4">Search</Button>
+        <Col className="text-center">
+          <h2>List Clubs</h2>
         </Col>
-        <Col md={1}>
+        <Row sm={2} md={5} className="justify-content-end">
           <Button variant="primary" onClick={handleShow}>
             Filter
           </Button>
-
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Select Filters</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <Form>
-                {['checkbox'].map((type) => (
-                  <div key={`inline-${type}`} className="mb-3">
-                    <Form.Check
-                      inline
-                      label="Religious/Spiritual"
-                      name="group1"
-                      type={type}
-                      id={`inline-${type}-1`}
-                    />
-                    <Form.Check
-                      inline
-                      label="Honorary Society"
-                      name="group1"
-                      type={type}
-                      id={`inline-${type}-2`}
-                    />
-                    <Form.Check
-                      inline
-                      label="Service"
-                      type={type}
-                      id={`inline-${type}-3`}
-                    />
-                    <Form.Check
-                      inline
-                      label="Student Affairs"
-                      type={type}
-                      id={`inline-${type}-4`}
-                    />
-                    <Form.Check
-                      inline
-                      label="Leisure/Recreational"
-                      type={type}
-                      id={`inline-${type}-5`}
-                    />
-                    <Form.Check
-                      inline
-                      label="Academic/Professional"
-                      type={type}
-                      id={`inline-${type}-6`}
-                    />
-                    <Form.Check
-                      inline
-                      label="Fraternity/Sorority"
-                      type={type}
-                      id={`inline-${type}-7`}
-                    />
-                    <Form.Check
-                      inline
-                      label="Ethnic/Cultural"
-                      type={type}
-                      id={`inline-${type}-8`}
-                    />
-                    <Form.Check
-                      inline
-                      label="Sports/Leisure"
-                      type={type}
-                      id={`inline-${type}-9`}
-                    />
-                  </div>
-                ))}
-              </Form>
+              <FormSelect id="filter-interests" onChange={handleFilterChange} value={selectedFilter || ''}>
+                <option value="">None</option>
+                <option value="Academic/Professional">Academic/Professional</option>
+                <option value="Ethnic/Cultural">Ethnic/Cultural</option>
+                <option value="Fraternity/Sorority">Fraternity/Sorority</option>
+                <option value="Honorary Society">Honorary Society</option>
+                <option value="Leisure/Recreational">Leisure/Recreational</option>
+                <option value="Political">Political</option>
+                <option value="Religious/Spiritual">Religious/Spiritual</option>
+                <option value="Service">Service</option>
+                <option value="Sports/Leisure">Sports/Leisure</option>
+                <option value="Student Affairs">Student Affairs</option>
+                <option value="Other">Other</option>
+              </FormSelect>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="primary" onClick={handleClose}>
-                Save Filters
-              </Button>
             </Modal.Footer>
           </Modal>
-        </Col>
+        </Row>
       </Row>
-      <hr />
+      <Row xs={1} md={2} lg={3} className="g-4 flex-wrap mx-0 my-5">
+        {clubs.map((club, index) => (
+          <Col key={index} className="align-items-stretch">
+            <Club key={index} club={club} />
+          </Col>
+        ))}
+      </Row>
     </Container>
   ) : <LoadingSpinner />);
 };
