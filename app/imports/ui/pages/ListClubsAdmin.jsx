@@ -39,40 +39,40 @@ const ListClubsAdmin = () => {
   return (ready ? (
     <Container id="list-clubs-admin" className="py-3">
       <Row className="justify-content-end">
-          <Row className="text-center">
-            <h2>Manage Clubs (Admin)</h2>
-          </Row>
-          <Row sm={2} md={5} className="justify-content-end mx-2">
-            <Button id="filters-admin" variant="primary" onClick={handleShow}>
-              Filter
-            </Button>
-            <Modal show={show} onHide={handleClose}>
-              <Modal.Header closeButton>
-                <Modal.Title>Select Filters</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <FormSelect id="filter-interests-admin" onChange={handleFilterChange} value={selectedFilter || ''}>
-                  <option value="">None</option>
-                  <option value="Academic/Professional">Academic/Professional</option>
-                  <option value="Ethnic/Cultural">Ethnic/Cultural</option>
-                  <option value="Fraternity/Sorority">Fraternity/Sorority</option>
-                  <option value="Honorary Society">Honorary Society</option>
-                  <option value="Leisure/Recreational">Leisure/Recreational</option>
-                  <option value="Political">Political</option>
-                  <option value="Religious/Spiritual">Religious/Spiritual</option>
-                  <option value="Service">Service</option>
-                  <option value="Sports/Leisure">Sports/Leisure</option>
-                  <option value="Student Affairs">Student Affairs</option>
-                  <option value="Other">Other</option>
-                </FormSelect>
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                  Close
-                </Button>
-              </Modal.Footer>
-            </Modal>
-          </Row>
+        <Row className="text-center">
+          <h2>Manage Clubs (Admin)</h2>
+        </Row>
+        <Row sm={2} md={5} className="justify-content-end mx-2">
+          <Button id="filters-admin" variant="primary" onClick={handleShow}>
+            Filter
+          </Button>
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Select Filters</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <FormSelect id="filter-interests-admin" onChange={handleFilterChange} value={selectedFilter || ''}>
+                <option value="">None</option>
+                <option value="Academic/Professional">Academic/Professional</option>
+                <option value="Ethnic/Cultural">Ethnic/Cultural</option>
+                <option value="Fraternity/Sorority">Fraternity/Sorority</option>
+                <option value="Honorary Society">Honorary Society</option>
+                <option value="Leisure/Recreational">Leisure/Recreational</option>
+                <option value="Political">Political</option>
+                <option value="Religious/Spiritual">Religious/Spiritual</option>
+                <option value="Service">Service</option>
+                <option value="Sports/Leisure">Sports/Leisure</option>
+                <option value="Student Affairs">Student Affairs</option>
+                <option value="Other">Other</option>
+              </FormSelect>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </Row>
       </Row>
       <Row xs={1} md={2} lg={3} className="g-4 flex-wrap mx-0 my-5">
         {clubs.map((club, index) => (
