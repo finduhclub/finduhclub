@@ -39,12 +39,12 @@ const ListClubs = () => {
   };
   return (ready ? (
     <Container id="list-clubs" fluid className="py-3">
-      <Row className="justify-content-end">
+      <Row className="justify-content-end mx-2">
         <Col className="text-center">
           <h2>List Clubs</h2>
         </Col>
         <Row sm={2} md={5} className="justify-content-end">
-          <Button variant="primary" onClick={handleShow}>
+          <Button id="filters" variant="primary" onClick={handleShow}>
             Filter
           </Button>
           <Modal show={show} onHide={handleClose}>
